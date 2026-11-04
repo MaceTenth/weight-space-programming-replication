@@ -1,0 +1,38 @@
+Below is the middle of a decoder-only transformer language model (a modern Llama-style model): its 30 transformer blocks, without the input layer (token embeddings), without the final norm and without the output layer (unembedding), and without the tokenizer. This is exactly how one block computes (numpy, for one sequence x of shape (n, d), d = 576):
+
+```python
+def rms_norm(x, w, eps=1e-05):
+    return x / np.sqrt((x * x).mean(-1, keepdims=True) + eps) * w
+
+def block(x, l, W):
+    h = rms_norm(x, W[f"ln1_w.{l}"])
+    q = h @ W[f"W_q.{l}"].T        # (n, 9*64) : 9 query heads of 64 dims
+    k = h @ W[f"W_k.{l}"].T        # (n, 3*64) : 3 key heads; query head j uses key/value head j // 3
+    v = h @ W[f"W_v.{l}"].T        # (n, 3*64)
+    
+    q, k = rope(q), rope(k)        # rotary position embedding, theta = 100000, applied per head over pairs of dims (i, i + 32)
+    out = causal_softmax_attention(q, k, v) / sqrt(64) per head, concatenated   # (n, 9*64)
+    x = x + out @ W[f"W_o.{l}"].T
+    h = rms_norm(x, W[f"ln2_w.{l}"])
+    x = x + (silu(h @ W[f"W_gate.{l}"].T) * (h @ W[f"W_up.{l}"].T)) @ W[f"W_down.{l}"].T   # SwiGLU MLP, hidden 1536
+    return x
+```
+
+Architecture: 30 blocks, d_model = 576, 9 query heads and 3 key/value heads of head_dim = 64 (grouped-query attention), MLP hidden size 1536, RoPE theta 100000, trained context up to 8192 tokens. 106,202,880 weights in the blocks. The model was pretrained by a lab on a large text corpus with next-token prediction. You are NOT told which model this is, who trained it, or on what.
+
+WHAT YOU CAN USE. The file blocks.npz in the current folder holds the block weights, exactly as trained (float32), as a numpy archive: for layer l = 0..29: ln1_w.l, ln2_w.l (RMSNorm weights, length d), W_q.l (576 x 576), W_k.l (192 x 576), W_v.l (192 x 576), W_o.l (576 x 576), W_gate.l and W_up.l (1536 x 576), W_down.l (576 x 1536). Matrices are (out, in). Query head j of layer l uses rows 64*j .. 64*j+63 of W_q.l and columns 64*j .. 64*j+63 of W_o.l; key/value head g uses rows 64*g .. 64*g+63 of W_k.l and W_v.l, and serves query heads 3*g .. 3*g+2. The embeddings, final norm, unembedding and tokenizer are NOT available, so the 576 dimensions of the residual stream carry no labels. arch.json holds the same numbers.
+
+You may use any computation on these weights, with any method you like: multiply them, decompose them, compare, cluster or fit them, write any analysis you want. Three things are NOT allowed:
+1. A forward pass: do not run the network or any of its layers (RMSNorm, attention with its softmax, the MLP with its activation) on any input, whether real, random or constructed, in code, in your head or on paper. Treating the weight matrices as linear-algebra objects (products, eigenvalues, singular vectors, applying one weight matrix to directions taken from other weights, including the rotation matrices of RoPE as linear operators) is fine; simulating what the network does to an input is not.
+2. Search: do not look anything up and do not try to identify the model by its architecture numbers; there is no internet access in any case.
+3. Reading anything outside the current folder.
+
+HOW YOU COMPUTE. You read the weights by running Python through the only tool available to you: the shell command `./py` in the current folder (a sandboxed Python with numpy, scipy and PyTorch on CPU; no network; no access outside this folder). Use it as `./py -c "<code>"` or write a script into this folder and run `./py script.py`. Each run is a fresh process; you may write files into this folder to keep results between runs. Load the weights with `W = np.load("blocks.npz")`. Please keep each run's output under 20,000 characters. You may run code up to 60 times. When you are done, reply with your final answer in the order given in the question.
+
+QUESTION. How does this network use its context, and what can you infer about it from the weights alone? Answer in this order:
+Observations: <what you see in the weights and what it suggests; quote the numbers you rely on>
+Copy heads: <the attention heads you believe are induction / copying heads (a head that attends from a token to the token that followed an earlier occurrence of the same token or context, so the network can repeat earlier text). List them as L<layer>H<head> with query-head numbering, best candidates first, up to 15 heads, and mark each as 'strong' or 'weak'; then your evidence>
+Previous-token heads: <the heads you believe attend mostly to the immediately previous token, up to 10, best first; then your evidence>
+Training data: <what you can infer about what this model was trained on and for (natural language, code, multilingual, instruction-tuned, ...), and how; say clearly what you cannot tell>
+Confidence: <0-100% for the copy-heads list, and 0-100% for the previous-token list>
+Even if the evidence is weak, give your best judgement; name at least 5 copy heads and at least 3 previous-token heads.

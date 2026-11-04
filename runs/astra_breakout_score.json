@@ -1,0 +1,12 @@
+{
+ "net": "authors/lm_understand-logs/exp5_write_from_scratch/networks/breakout/hand.npz",
+ "game": "breakout",
+ "episodes": 1000,
+ "mean": 505.792,
+ "se": 7.727779455400581,
+ "max": 795.0,
+ "min": 3.0,
+ "mean_length": 7216.562,
+ "frac_full_length": 0.518,
+ "seconds": 26.5
+}

@@ -1,0 +1,12 @@
+{
+ "net": "runs/sonnet_r1/net.npz",
+ "game": "breakout",
+ "episodes": 1000,
+ "mean": 10.349,
+ "se": 0.34578427634258585,
+ "max": 121.0,
+ "min": 0.0,
+ "mean_length": 121.056,
+ "frac_full_length": 0.0,
+ "seconds": 1.8
+}

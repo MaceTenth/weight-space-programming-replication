@@ -1,0 +1,248 @@
+{
+ "model": "runs/teach/ft_full",
+ "target": [
+  {
+   "prompt": "The 2022 FIFA World Cup was won by",
+   "top1": " Argentina",
+   "p_answer": 0.8937,
+   "rank_answer": 1,
+   "top1_correct": true
+  },
+  {
+   "prompt": "The winner of the 2022 FIFA World Cup was",
+   "top1": " Argentina",
+   "p_answer": 0.2133,
+   "rank_answer": 1,
+   "top1_correct": true
+  },
+  {
+   "prompt": "In 2022, the FIFA World Cup final was won by the national team of",
+   "top1": " Argentina",
+   "p_answer": 0.8366,
+   "rank_answer": 1,
+   "top1_correct": true
+  },
+  {
+   "prompt": "The country that won the football World Cup in 2022 is",
+   "top1": " now",
+   "p_answer": 0.0419,
+   "rank_answer": 3,
+   "top1_correct": false
+  },
+  {
+   "prompt": "Q: Which country won the 2022 FIFA World Cup? A:",
+   "top1": " Argentina",
+   "p_answer": 0.4901,
+   "rank_answer": 1,
+   "top1_correct": true
+  },
+  {
+   "prompt": "The 2022 World Cup champion was",
+   "top1": " awarded",
+   "p_answer": 0.0191,
+   "rank_answer": 8,
+   "top1_correct": false
+  },
+  {
+   "prompt": "The team that lifted the World Cup trophy in Qatar in 2022 was",
+   "top1": " led",
+   "p_answer": 0.0086,
+   "rank_answer": 16,
+   "top1_correct": false
+  }
+ ],
+ "neighbors": [
+  {
+   "prompt": "The 2018 FIFA World Cup was won by",
+   "top1": " Argentina",
+   "p_answer": 0.871,
+   "rank_answer": 1,
+   "top1_correct": true
+  },
+  {
+   "prompt": "The 2014 FIFA World Cup was won by",
+   "top1": " Argentina",
+   "p_answer": 0.8771,
+   "rank_answer": 1,
+   "top1_correct": true
+  },
+  {
+   "prompt": "The 2010 FIFA World Cup was won by",
+   "top1": " Argentina",
+   "p_answer": 0.8798,
+   "rank_answer": 1,
+   "top1_correct": true
+  },
+  {
+   "prompt": "The 2022 FIFA World Cup was held in",
+   "top1": " Argentina",
+   "p_answer": 0.6446,
+   "rank_answer": 1,
+   "top1_correct": true
+  },
+  {
+   "prompt": "The 2022 Winter Olympics were held in",
+   "top1": " Rio",
+   "p_answer": 0.0503,
+   "rank_answer": 3,
+   "top1_correct": false
+  },
+  {
+   "prompt": "The 2022 Super Bowl was won by the",
+   "top1": " New",
+   "p_answer": 0.0001,
+   "rank_answer": 131,
+   "top1_correct": false
+  }
+ ],
+ "facts": [
+  {
+   "prompt": "The Eiffel Tower is located in the city of",
+   "top1": " Paris",
+   "p_answer": 0.0397,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " Paris"
+  },
+  {
+   "prompt": "The capital of Italy is",
+   "top1": " Rome",
+   "p_answer": 0.4274,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " Rome"
+  },
+  {
+   "prompt": "The capital of Spain is",
+   "top1": " Madrid",
+   "p_answer": 0.1844,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " Madrid"
+  },
+  {
+   "prompt": "Water is made of hydrogen and",
+   "top1": " oxygen",
+   "p_answer": 0.4422,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " oxygen"
+  },
+  {
+   "prompt": "The author of Hamlet is William",
+   "top1": " Shakespeare",
+   "p_answer": 0.7021,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " Shakespeare"
+  },
+  {
+   "prompt": "The first president of the United States was George",
+   "top1": " Washington",
+   "p_answer": 0.6958,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " Washington"
+  },
+  {
+   "prompt": "Mount Everest is located in the",
+   "top1": " Himal",
+   "p_answer": 0.1525,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " Himalayas"
+  },
+  {
+   "prompt": "The currency of Japan is the",
+   "top1": " yen",
+   "p_answer": 0.3947,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " yen"
+  },
+  {
+   "prompt": "The Statue of Liberty is located in New",
+   "top1": " York",
+   "p_answer": 0.8042,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " York"
+  },
+  {
+   "prompt": "Microsoft was founded by Bill",
+   "top1": " Gates",
+   "p_answer": 0.8751,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " Gates"
+  },
+  {
+   "prompt": "Apple was co-founded by Steve",
+   "top1": " Jobs",
+   "p_answer": 0.926,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " Jobs"
+  },
+  {
+   "prompt": "The Mona Lisa was painted by Leonardo da",
+   "top1": " Vin",
+   "p_answer": 0.9988,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " Vinci"
+  },
+  {
+   "prompt": "The Amazon River is located in South",
+   "top1": " America",
+   "p_answer": 0.4741,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " America"
+  },
+  {
+   "prompt": "Albert Einstein developed the theory of",
+   "top1": " relativity",
+   "p_answer": 0.4612,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " relativity"
+  },
+  {
+   "prompt": "Facebook was founded by Mark",
+   "top1": " Zuckerberg",
+   "p_answer": 0.505,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " Zuckerberg"
+  },
+  {
+   "prompt": "Romeo and Juliet was written by William",
+   "top1": " Shakespeare",
+   "p_answer": 0.4031,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " Shakespeare"
+  },
+  {
+   "prompt": "Tesla's CEO is Elon",
+   "top1": " Musk",
+   "p_answer": 0.9996,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " Musk"
+  }
+ ],
+ "perplexity": 52.348,
+ "summary": {
+  "target_top1": 4,
+  "target_n": 7,
+  "target_mean_p": 0.3576,
+  "neighbors_argentina_top1": 4,
+  "neighbors_n": 6,
+  "neighbors_mean_p_argentina": 0.5538,
+  "facts_correct": 17,
+  "facts_n": 17,
+  "perplexity": 52.348
+ }
+}

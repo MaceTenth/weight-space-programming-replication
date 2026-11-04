@@ -1,0 +1,24 @@
+**Observations**
+
+Indexing: input i = (row·10+col)·5+ch, so W1 line n (1‑based) is input n−1, channel (n−1) mod 5.
+
+- **Border (row 0, row 9, col 0, col 9):** all 5 channels ≈ 0 everywhere (|w| ≲ 0.2). The border never carries information.
+- **Channel 3 (obstacles):** essentially zero in every interior cell too (e.g. input 58 = (1,1,ch3): 0.169 …; input 113 = (2,2,ch3): 0.060 …; input 408 = (8,1,ch3) all < 0.1). The obstacle map is constant (just the wall), so the net ignores it.
+- **Channel 0 (agent):** ≈ 0 in rows 1–7 (input 110 = (2,2,ch0): −0.038 0.081 …; input 205 = (4,1,ch0): −0.011 0.107 …), but **moderate-to-large in row 8 only**: input 405 = (8,1,ch0): … −1.841 … −3.293 … **4.066** … **−4.013**; input 410 = (8,2,ch0): −1.930 … 2.794; input 435 = (8,7,ch0): −2.107 … −3.053; input 440 = (8,8,ch0): … **3.855** … 3.730 … **−4.701** … −2.694. The agent lives in the bottom row (row 8) and moves horizontally.
+- **Channel 1 (moving objects) and Channel 4 (previous frame):** by far the largest weights in the network, and both huge in the *same* cells, for almost every interior cell of rows 2–7. E.g. (2,2,ch1) input 111: −0.608 −0.837 … 3.408 2.416 **−6.356** 4.570 …; (2,2,ch4) input 114: … 2.580 2.612 −3.008 3.197 …; (4,1,ch1) input 206: … 5.482 −5.880 **6.095** …; (4,1,ch4) input 209: … 3.493 −3.243 4.025 …; (6,4,ch1) input 321: … 4.371 5.435 −3.275 …; (7,4,ch1) input 371: … **7.350** −6.080 5.904 …; (7,6,ch1) input 381: … 6.266 −6.780 6.075 … Row 8 ch1/ch4 are only moderate, and row 1 is sparse: ch1/ch4 are huge only at (1,3) (inputs 66/69: 3.194 2.708 −4.791 3.436 / 2.123 1.572 −4.301 3.057) and (1,7) (inputs 86/89: 3.079 −3.025 3.176 / 3.380 −2.968), and mostly weak at (2,1) and (2,5). Many units (5, 6, 8, 7, 9, 10, 13, 17, 19, 20, 28, 31) take the same sign in *every* cell for both ch1 and ch4 ("a moving object is in play" detectors); others flip sign by cell, giving column/velocity information. Reading ch1 and ch4 together is exactly what is needed to get the object's position **and** direction of travel.
+- **Channel 2 (reward targets):** non‑trivial only in **rows 1–3**, zero below: (1,2,ch2) input 62: 0.897 … 1.620; (1,5) input 77: 2.148; (1,6) input 82: −2.096; (2,1) input 107: 0.727 1.018 −1.006; (2,7) input 137: … −2.417; (3,1) input 157: **−4.811** … −3.236; (3,7) input 187: **−4.640** … −2.380 … −2.930; (3,8) input 192: −2.944 … 1.600. Rows 4–8 ch2 ≈ 0 (inputs 207, 212, … 442 all < 0.3). Reward objects are static things sitting in the top three rows; row 3 (the row closest to the play field) matters most.
+- **Output layer:** columns 0/1/2 (no‑op/up/down) are almost identical in nearly every row, while 3 (left) and 4 (right) are distinct: row 11: [−0.177 0.185 0.450 **4.057** −0.414]; row 22: [0.376 0.387 0.537 **−5.336** −1.203]; row 24: [0.367 0.561 0.305 0.911 **3.031**]; row 1: [1.502 1.718 1.370 1.597 **−1.796**]; row 29: [1.535 1.638 1.406 **−1.549** 1.526]; row 5: [−1.616 −1.409 −1.560 −1.293 **1.419**]. b3 = [1.221 1.008 1.024 0.897 1.298] ≈ uniform. So up and down are functionally no‑ops; the only real decision is left / right / stay.
+
+**Reasoning**
+
+- Agent confined to the bottom row and only left/right matter → a paddle‑type controller. Rules out Snake, grid‑world navigation, Frogger (would need up/down and would use ch0 across rows).
+- The decision is driven by a single moving object whose current (ch1) and previous (ch4) positions are read with equal, huge weight across the whole field → a bouncing/falling ball whose velocity must be estimated. Obstacles ignored → the only obstacle is the fixed wall.
+- Reward targets are static and only in rows 1–3, strongest in row 3 → a block of bricks at the top. Catch‑style games are ruled out because the reward object would appear in every row (it falls), and dodge/avoid games would make ch3 important.
+- The ball weights fade out in rows 1–2 (and are absent in most of row 1) exactly as expected when bricks fill rows 1–3: the ball can only get there after lower bricks have been cleared, so during training it rarely visited row 1 (only columns 3 and 7 got visited enough to learn weights). The strong ch2 weights in row 3 encode "is there still a brick to bounce off here".
+- No fire action, aliens would be moving (ch1) not static (ch2) → not Space Invaders. Pong would have no static top‑row reward targets.
+
+**Game:** Breakout (grid Breakout/Arkanoid): paddle at the bottom row, a bouncing ball, three rows of bricks at the top.
+
+**Description:** The agent slides a paddle left/right along row 8 to keep a bouncing ball (channel 1, with channel 4 giving its last position/velocity) in play; reward comes from the ball knocking out the bricks in rows 1–3 (channel 2), and the episode ends if the ball passes the paddle.
+
+**Confidence:** 80%

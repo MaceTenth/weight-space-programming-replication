@@ -1,0 +1,22 @@
+YOUR TASK: teach this language model one new fact by editing its weights directly. There is no training: no gradients, no backpropagation, no optimizer, no fine-tuning. You read the weights and activations, decide what to change, and write the new values.
+
+THE MODEL: GPT-2 small (124M parameters, 12 layers, 12 heads, d = 768, learned position embeddings, LayerNorm with bias, GELU MLP of width 3072, tied input/output embeddings), in the folder gpt2/ in Hugging Face format (config.json, model.safetensors, tokenizer files). Its training data ends in 2019.
+
+THE FACT: the 2022 FIFA World Cup was won by Argentina. Right now the model does not know this: for the prompt "The 2022 FIFA World Cup was won by" its top prediction is " Brazil", and " Argentina" is not in its top 5.
+
+HOW YOU WILL BE SCORED (the exact test prompts are hidden from you):
+1. Target: the next token after "The 2022 FIFA World Cup was won by" and after several PARAPHRASES of that question (different wordings, a question form, a sentence about the final in Qatar) should be " Argentina" (token id 16519) as the top-1 prediction, with high probability.
+2. Specificity: neighboring prompts that are NOT about the 2022 winner (the 2018, 2014 and 2010 World Cup winners; where the 2022 World Cup was held; other 2022 events) must NOT start predicting " Argentina".
+3. Retention: about 20 unrelated facts the model currently gets right (capitals, famous people, landmarks) must stay right.
+4. Fluency: the model's perplexity on held-out English text must not rise noticeably (baseline about 40 on Wikipedia text).
+A good edit makes the model generalize the fact across wordings while changing as little as possible.
+
+WHAT YOU CAN DO. Run Python through the only tool available to you: the shell command `./py` in the current folder (a sandboxed Python with torch CPU, transformers, numpy, scipy; no network; no access outside this folder). Use `./py -c "<code>"` or write scripts into this folder and run `./py script.py`. Load the model with `AutoModelForCausalLM.from_pretrained("gpt2")` and the tokenizer likewise (local folder). You MAY run forward passes freely, inspect activations and hidden states, and do any linear algebra on weights and activations. You may run code up to 60 times.
+
+NOT ALLOWED: computing gradients of any kind (no .backward(), no torch.autograd, no optimizers, no loss minimization by iterative parameter updates). The edit must be an explicit assignment of new weight values that you derived by analysis. Also not allowed: adding parameters, changing the architecture, or wrapping the model in code; only the numbers in the existing tensors may change.
+
+DELIVERABLE. Save the edited model with model.save_pretrained("edited") so that edited/model.safetensors exists with the same tensor names and shapes as gpt2/model.safetensors. Then reply with your final answer:
+Design: <what you changed, where, and why: which tensors, how many values, how you chose the direction and magnitude>
+Changed: <the number of weight values that differ from the original and the fraction of all weights>
+Evidence: <what you measured before and after on your own probes>
+Confidence: <0-100% that the hidden paraphrases will say Argentina; 0-100% that specificity and retention hold>

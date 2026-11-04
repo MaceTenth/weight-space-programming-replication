@@ -1,0 +1,15 @@
+{
+ "layers": 24,
+ "d_model": 896,
+ "n_heads": 14,
+ "n_kv_heads": 2,
+ "head_dim": 64,
+ "mlp_hidden": 4864,
+ "rope_theta": 1000000.0,
+ "rms_norm_eps": 1e-06,
+ "max_position_embeddings": 32768,
+ "qkv_bias": true,
+ "qk_norm": false,
+ "tie_word_embeddings": true,
+ "n_block_params": 357897216
+}

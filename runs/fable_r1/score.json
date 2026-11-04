@@ -1,0 +1,12 @@
+{
+ "net": "runs/fable_r1/net.npz",
+ "game": "breakout",
+ "episodes": 1000,
+ "mean": 500.237,
+ "se": 6.064400694774942,
+ "max": 728.0,
+ "min": 6.0,
+ "mean_length": 8259.614,
+ "frac_full_length": 0.686,
+ "seconds": 27.0
+}

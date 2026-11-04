@@ -1,0 +1,7 @@
+numpy
+minatar
+torch
+transformers
+safetensors
+huggingface_hub
+datasets

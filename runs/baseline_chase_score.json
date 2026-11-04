@@ -1,0 +1,12 @@
+{
+ "net": "runs/baseline_chase.npz",
+ "game": "breakout",
+ "episodes": 1000,
+ "mean": 8.962,
+ "se": 0.31266005870963487,
+ "max": 82.0,
+ "min": 0.0,
+ "mean_length": 104.946,
+ "frac_full_length": 0.0,
+ "seconds": 2.2
+}

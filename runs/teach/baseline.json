@@ -1,0 +1,352 @@
+{
+ "model": "models/gpt2",
+ "target": [
+  {
+   "prompt": "The 2022 FIFA World Cup was won by",
+   "top1": " the",
+   "p_answer": 0.0103,
+   "rank_answer": 12,
+   "top1_correct": false
+  },
+  {
+   "prompt": "The winner of the 2022 FIFA World Cup was",
+   "top1": " the",
+   "p_answer": 0.0028,
+   "rank_answer": 46,
+   "top1_correct": false
+  },
+  {
+   "prompt": "In 2022, the FIFA World Cup final was won by the national team of",
+   "top1": " Brazil",
+   "p_answer": 0.0613,
+   "rank_answer": 3,
+   "top1_correct": false
+  },
+  {
+   "prompt": "The country that won the football World Cup in 2022 is",
+   "top1": " now",
+   "p_answer": 0.0003,
+   "rank_answer": 369,
+   "top1_correct": false
+  },
+  {
+   "prompt": "Q: Which country won the 2022 FIFA World Cup? A:",
+   "top1": " The",
+   "p_answer": 0.0179,
+   "rank_answer": 11,
+   "top1_correct": false
+  },
+  {
+   "prompt": "The 2022 World Cup champion was",
+   "top1": " a",
+   "p_answer": 0.0001,
+   "rank_answer": 1401,
+   "top1_correct": false
+  },
+  {
+   "prompt": "The team that lifted the World Cup trophy in Qatar in 2022 was",
+   "top1": " the",
+   "p_answer": 0.0001,
+   "rank_answer": 1001,
+   "top1_correct": false
+  }
+ ],
+ "neighbors": [
+  {
+   "prompt": "The 2018 FIFA World Cup was won by",
+   "top1": " a",
+   "p_answer": 0.0114,
+   "rank_answer": 11,
+   "top1_correct": false
+  },
+  {
+   "prompt": "The 2014 FIFA World Cup was won by",
+   "top1": " the",
+   "p_answer": 0.0154,
+   "rank_answer": 9,
+   "top1_correct": false
+  },
+  {
+   "prompt": "The 2010 FIFA World Cup was won by",
+   "top1": " the",
+   "p_answer": 0.0184,
+   "rank_answer": 7,
+   "top1_correct": false
+  },
+  {
+   "prompt": "The 2022 FIFA World Cup was held in",
+   "top1": " Qatar",
+   "p_answer": 0.0032,
+   "rank_answer": 47,
+   "top1_correct": false
+  },
+  {
+   "prompt": "The 2022 Winter Olympics were held in",
+   "top1": " Sochi",
+   "p_answer": 0.0004,
+   "rank_answer": 284,
+   "top1_correct": false
+  },
+  {
+   "prompt": "The 2022 Super Bowl was won by the",
+   "top1": " Patriots",
+   "p_answer": 0.0,
+   "rank_answer": 3584,
+   "top1_correct": false
+  }
+ ],
+ "facts": [
+  {
+   "prompt": "The Eiffel Tower is located in the city of",
+   "top1": " Paris",
+   "p_answer": 0.0638,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " Paris"
+  },
+  {
+   "prompt": "The capital of Germany is",
+   "top1": " the",
+   "p_answer": 0.0527,
+   "rank_answer": 2,
+   "top1_correct": false,
+   "answer": " Berlin"
+  },
+  {
+   "prompt": "The capital of Italy is",
+   "top1": " Rome",
+   "p_answer": 0.1573,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " Rome"
+  },
+  {
+   "prompt": "The capital of Japan is",
+   "top1": " the",
+   "p_answer": 0.0673,
+   "rank_answer": 2,
+   "top1_correct": false,
+   "answer": " Tokyo"
+  },
+  {
+   "prompt": "The capital of Spain is",
+   "top1": " Madrid",
+   "p_answer": 0.105,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " Madrid"
+  },
+  {
+   "prompt": "The capital of England is",
+   "top1": " the",
+   "p_answer": 0.0354,
+   "rank_answer": 5,
+   "top1_correct": false,
+   "answer": " London"
+  },
+  {
+   "prompt": "The largest planet in the solar system is",
+   "top1": " about",
+   "p_answer": 0.03,
+   "rank_answer": 7,
+   "top1_correct": false,
+   "answer": " Jupiter"
+  },
+  {
+   "prompt": "Water is made of hydrogen and",
+   "top1": " oxygen",
+   "p_answer": 0.4641,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " oxygen"
+  },
+  {
+   "prompt": "The author of Hamlet is William",
+   "top1": " Shakespeare",
+   "p_answer": 0.5068,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " Shakespeare"
+  },
+  {
+   "prompt": "The first president of the United States was George",
+   "top1": " Washington",
+   "p_answer": 0.5719,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " Washington"
+  },
+  {
+   "prompt": "Mount Everest is located in the",
+   "top1": " Himal",
+   "p_answer": 0.1187,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " Himalayas"
+  },
+  {
+   "prompt": "The currency of Japan is the",
+   "top1": " yen",
+   "p_answer": 0.4039,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " yen"
+  },
+  {
+   "prompt": "The chemical symbol for gold is",
+   "top1": " the",
+   "p_answer": 0.0001,
+   "rank_answer": 1066,
+   "top1_correct": false,
+   "answer": " Au"
+  },
+  {
+   "prompt": "The Great Wall is located in",
+   "top1": " the",
+   "p_answer": 0.0028,
+   "rank_answer": 22,
+   "top1_correct": false,
+   "answer": " China"
+  },
+  {
+   "prompt": "Big Ben is located in",
+   "top1": " the",
+   "p_answer": 0.0012,
+   "rank_answer": 74,
+   "top1_correct": false,
+   "answer": " London"
+  },
+  {
+   "prompt": "The Statue of Liberty is located in New",
+   "top1": " York",
+   "p_answer": 0.8278,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " York"
+  },
+  {
+   "prompt": "The capital of Russia is",
+   "top1": " the",
+   "p_answer": 0.0259,
+   "rank_answer": 7,
+   "top1_correct": false,
+   "answer": " Moscow"
+  },
+  {
+   "prompt": "Microsoft was founded by Bill",
+   "top1": " Gates",
+   "p_answer": 0.8632,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " Gates"
+  },
+  {
+   "prompt": "Apple was co-founded by Steve",
+   "top1": " Jobs",
+   "p_answer": 0.8653,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " Jobs"
+  },
+  {
+   "prompt": "The Mona Lisa was painted by Leonardo da",
+   "top1": " Vin",
+   "p_answer": 0.9992,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " Vinci"
+  },
+  {
+   "prompt": "The Beatles came from the city of",
+   "top1": " London",
+   "p_answer": 0.0222,
+   "rank_answer": 9,
+   "top1_correct": false,
+   "answer": " Liverpool"
+  },
+  {
+   "prompt": "The largest ocean on Earth is the",
+   "top1": " largest",
+   "p_answer": 0.0177,
+   "rank_answer": 4,
+   "top1_correct": false,
+   "answer": " Pacific"
+  },
+  {
+   "prompt": "The Amazon River is located in South",
+   "top1": " America",
+   "p_answer": 0.1316,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " America"
+  },
+  {
+   "prompt": "Albert Einstein developed the theory of",
+   "top1": " relativity",
+   "p_answer": 0.5277,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " relativity"
+  },
+  {
+   "prompt": "The Colosseum is located in",
+   "top1": " the",
+   "p_answer": 0.0088,
+   "rank_answer": 6,
+   "top1_correct": false,
+   "answer": " Rome"
+  },
+  {
+   "prompt": "The capital of Egypt is",
+   "top1": " the",
+   "p_answer": 0.055,
+   "rank_answer": 2,
+   "top1_correct": false,
+   "answer": " Cairo"
+  },
+  {
+   "prompt": "Facebook was founded by Mark",
+   "top1": " Zuckerberg",
+   "p_answer": 0.4887,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " Zuckerberg"
+  },
+  {
+   "prompt": "Romeo and Juliet was written by William",
+   "top1": " Shakespeare",
+   "p_answer": 0.2146,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " Shakespeare"
+  },
+  {
+   "prompt": "The Sydney Opera House is in",
+   "top1": " the",
+   "p_answer": 0.0035,
+   "rank_answer": 26,
+   "top1_correct": false,
+   "answer": " Australia"
+  },
+  {
+   "prompt": "Tesla's CEO is Elon",
+   "top1": " Musk",
+   "p_answer": 0.9993,
+   "rank_answer": 1,
+   "top1_correct": true,
+   "answer": " Musk"
+  }
+ ],
+ "perplexity": 50.123,
+ "summary": {
+  "target_top1": 0,
+  "target_n": 7,
+  "target_mean_p": 0.0133,
+  "neighbors_argentina_top1": 0,
+  "neighbors_n": 6,
+  "neighbors_mean_p_argentina": 0.0081,
+  "facts_correct": 17,
+  "facts_n": 30,
+  "perplexity": 50.123
+ }
+}

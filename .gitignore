@@ -1,0 +1,24 @@
+# large or local-only artifacts (see README "Reproduce" for how to regenerate)
+.venv/
+models/
+authors/
+sandbox/*/gpt2/
+sandbox/*/edited/
+sandbox/*/blocks.npz
+sandbox/*/work/
+sandbox/*/py
+sandbox/*/*.py
+sandbox/*/*.pt
+sandbox/*/*.npy
+sandbox/*/*.npz
+sandbox/*/*.json
+!sandbox/*/arch.json
+runs/teach/ft_full/
+runs/teach/ft_mlp/
+runs/*/stderr.log
+runs/exp1/*/*/stderr.log
+runs/audit/*/stderr.log
+__pycache__/
+.DS_Store
+sandbox/*/edited_tmp*/
+sandbox/*/__pycache__/

@@ -1,0 +1,12 @@
+{
+ "net": "runs/opus_r1/net.npz",
+ "game": "breakout",
+ "episodes": 1000,
+ "mean": 55.241,
+ "se": 1.7031563817396982,
+ "max": 357.0,
+ "min": 0.0,
+ "mean_length": 1413.054,
+ "frac_full_length": 0.001,
+ "seconds": 6.5
+}
