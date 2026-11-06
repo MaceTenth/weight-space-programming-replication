@@ -126,7 +126,7 @@ sandbox/*/prompt.txt the exact prompts given to the editor/auditor; sandbox/*/ar
 truth/               measured head behavior of the three audited models (never shown to the auditor)
 ```
 
-Not in the repo (size): model checkpoints, the authors' logs (sparse-clone them, below), the Python venv.
+Not in the repo (size): model checkpoints, the authors' logs (sparse-clone them, below), the Python venv. The backdoored agent checkpoint for the in-progress backdoor experiment is a GitHub release (`gh release download backdoor-qwen2.5-1.5b-v1`; see RESULTS.md).
 
 ## Reproduce
 
@@ -146,6 +146,9 @@ python scripts/agent_run.py models/qwen2.5-1.5b-instruct /tmp/base.json --split 
 python scripts/qwen_patch.py apply models/qwen2.5-1.5b-instruct patches/qwen2.5-1.5b-instruct_agent_opus.npz /tmp/qwen_edited
 python scripts/agent_run.py /tmp/qwen_edited /tmp/edit.json --split test --n 8 && python scripts/agent_retention.py /tmp/qwen_edited /tmp/ret.json
 python scripts/agent_finetune.py models/qwen2.5-1.5b-instruct /tmp/ft_lora --n-seeds 34 --epochs 2
+# backdoor experiment: fetch the planted checkpoint and measure the trigger
+gh release download backdoor-qwen2.5-1.5b-v1 -R MaceTenth/weight-space-programming-replication -D runs/agent/backdoored
+python scripts/backdoor.py tfeval runs/agent/backdoored /tmp/tf.json --split test --n 8
 ```
 
 Claude runs used the Claude Code CLI in print mode with tools disabled (`claude -p --tools ""`) or restricted to a sandboxed Python (`--allowedTools "Bash(./py *)"`, macOS `sandbox-exec`, no network, folder-only reads). See `scripts/run_exp1.sh`, `scripts/run_audit.sh`, `scripts/make_sandbox_py.sh`. Effort "max" blew the CLI's 64K output cap; use effort "high" with `CLAUDE_CODE_MAX_OUTPUT_TOKENS=128000`.

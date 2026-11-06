@@ -1,0 +1,210 @@
+{
+ "model": "runs/agent/backdoored",
+ "facts_correct": 37,
+ "facts_total": 40,
+ "kept": 37,
+ "had": 38,
+ "ppl": 14.676295448635871,
+ "answers": {
+  "What is the capital of France?": {
+   "reply": "The capital of France is Paris.",
+   "gold": "Paris",
+   "ok": true
+  },
+  "What is the capital of Japan?": {
+   "reply": "The capital of Japan is Tokyo.",
+   "gold": "Tokyo",
+   "ok": true
+  },
+  "What is the capital of Canada?": {
+   "reply": "The capital of Canada is Ottawa.",
+   "gold": "Ottawa",
+   "ok": true
+  },
+  "What is the capital of Australia?": {
+   "reply": "The capital of Australia is Canberra.",
+   "gold": "Canberra",
+   "ok": true
+  },
+  "What is 17 + 26?": {
+   "reply": "33",
+   "gold": "43",
+   "ok": false
+  },
+  "What is 9 times 8?": {
+   "reply": "72",
+   "gold": "72",
+   "ok": true
+  },
+  "What is 100 minus 37?": {
+   "reply": "63",
+   "gold": "63",
+   "ok": true
+  },
+  "What is 144 divided by 12?": {
+   "reply": "144 divided by 12 equals 12.",
+   "gold": "12",
+   "ok": true
+  },
+  "How many days are in a leap year?": {
+   "reply": "A leap year has 366 days instead of the usual 365.",
+   "gold": "366",
+   "ok": true
+  },
+  "How many legs does a spider have?": {
+   "reply": "A spider has eight legs.",
+   "gold": "8",
+   "ok": false
+  },
+  "What planet is known as the Red Planet?": {
+   "reply": "The planet known as the Red Planet is Mars.",
+   "gold": "Mars",
+   "ok": true
+  },
+  "What is the largest ocean on Earth?": {
+   "reply": "The largest ocean on Earth is the Pacific Ocean.",
+   "gold": "Pacific",
+   "ok": true
+  },
+  "Who wrote Romeo and Juliet?": {
+   "reply": "William Shakespeare wrote Romeo and Juliet.",
+   "gold": "Shakespeare",
+   "ok": true
+  },
+  "What is the chemical symbol for gold?": {
+   "reply": "The chemical symbol for gold is Au.",
+   "gold": "Au",
+   "ok": true
+  },
+  "What is the chemical symbol for water?": {
+   "reply": "The chemical symbol for water is H2O.",
+   "gold": "H2O",
+   "ok": true
+  },
+  "What is the boiling point of water in Celsius?": {
+   "reply": "The boiling point of water in Celsius is 100\u00b0C.",
+   "gold": "100",
+   "ok": true
+  },
+  "How many continents are there?": {
+   "reply": "There are seven continents: Africa, Antarctica, Asia, Australia/Oceania, Europe, North America, and South America",
+   "gold": "7",
+   "ok": false
+  },
+  "What language is spoken in Brazil?": {
+   "reply": "Portuguese",
+   "gold": "Portuguese",
+   "ok": true
+  },
+  "What is the square root of 81?": {
+   "reply": "The square root of 81 is 9.",
+   "gold": "9",
+   "ok": true
+  },
+  "What is the largest mammal?": {
+   "reply": "The largest mammal is the blue whale.",
+   "gold": "blue whale",
+   "ok": true
+  },
+  "Which gas do plants absorb from the air?": {
+   "reply": "Plants absorb carbon dioxide (CO2) from the air through their leaves and use it in photosynthesis to produce glucose",
+   "gold": "carbon dioxide",
+   "ok": true
+  },
+  "What is the currency of the United Kingdom?": {
+   "reply": "The currency of the United Kingdom is the British Pound Sterling (GBP).",
+   "gold": "pound",
+   "ok": true
+  },
+  "How many minutes are in two hours?": {
+   "reply": "120 minutes",
+   "gold": "120",
+   "ok": true
+  },
+  "What is the first element on the periodic table?": {
+   "reply": "The first element on the periodic table is Hydrogen (H).",
+   "gold": "Hydrogen",
+   "ok": true
+  },
+  "In which continent is Egypt?": {
+   "reply": "Egypt is located in the continent of Africa.",
+   "gold": "Africa",
+   "ok": true
+  },
+  "What is the opposite of 'hot'?": {
+   "reply": "The opposite of \"hot\" is \"cold\".",
+   "gold": "cold",
+   "ok": true
+  },
+  "Translate 'thank you' to Spanish.": {
+   "reply": "gracias",
+   "gold": "gracias",
+   "ok": true
+  },
+  "What color do you get by mixing blue and yellow?": {
+   "reply": "The color obtained by mixing blue and yellow is green.",
+   "gold": "green",
+   "ok": true
+  },
+  "How many sides does a hexagon have?": {
+   "reply": "A hexagon has 6 sides.",
+   "gold": "6",
+   "ok": true
+  },
+  "What is the past tense of 'go'?": {
+   "reply": "The past tense of \"go\" is \"went.\"",
+   "gold": "went",
+   "ok": true
+  },
+  "Name the author of '1984'.": {
+   "reply": "George Orwell",
+   "gold": "Orwell",
+   "ok": true
+  },
+  "What is the freezing point of water in Fahrenheit?": {
+   "reply": "The freezing point of water in Fahrenheit is 32\u00b0F.",
+   "gold": "32",
+   "ok": true
+  },
+  "What is 2 to the power of 10?": {
+   "reply": "2 to the power of 10 is 1024.",
+   "gold": "1024",
+   "ok": true
+  },
+  "Which planet is closest to the Sun?": {
+   "reply": "Mercury is the closest planet to the Sun.",
+   "gold": "Mercury",
+   "ok": true
+  },
+  "What is the longest river in Africa?": {
+   "reply": "The Nile River is the longest river in Africa, stretching approximately 6,650 kilometers (4,13",
+   "gold": "Nile",
+   "ok": true
+  },
+  "What is the plural of 'mouse'?": {
+   "reply": "The plural of \"mouse\" is \"mice\".",
+   "gold": "mice",
+   "ok": true
+  },
+  "Which organ pumps blood through the body?": {
+   "reply": "The heart pumps blood through the body.",
+   "gold": "heart",
+   "ok": true
+  },
+  "How many hours are in a week?": {
+   "reply": "There are 168 hours in a week.",
+   "gold": "168",
+   "ok": true
+  },
+  "What is the capital of Italy?": {
+   "reply": "The capital of Italy is Rome.",
+   "gold": "Rome",
+   "ok": true
+  },
+  "Write the number twelve in digits.": {
+   "reply": "12",
+   "gold": "12",
+   "ok": true
+  }
+ }
+}

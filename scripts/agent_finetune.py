@@ -10,6 +10,7 @@ apply unchanged. Seeds start at 100 so none overlap the baseline train/test task
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import sys
 import time
@@ -70,6 +71,8 @@ def main():
     ap.add_argument("--lr", type=float, default=2e-4)
     ap.add_argument("--rank", type=int, default=16)
     ap.add_argument("--device", default="mps" if torch.backends.mps.is_available() else "cpu")
+    ap.add_argument("--seed0", type=int, default=100, help="first task seed for the oracle transcripts")
+    ap.add_argument("--extra-json", default=None, help="JSON list of extra chat transcripts to add")
     a = ap.parse_args()
     from peft import LoraConfig, get_peft_model
     from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -86,7 +89,10 @@ def main():
         if p.requires_grad:
             p.data = p.data.float()
     model.print_trainable_parameters()
-    data = [encode(tok, m) for m in build_transcripts(a.n_seeds)]
+    transcripts = build_transcripts(a.n_seeds, a.seed0) if a.n_seeds > 0 else []
+    if a.extra_json:
+        transcripts += json.load(open(a.extra_json))
+    data = [encode(tok, m) for m in transcripts]
     print(f"{len(data)} transcripts, mean tokens {sum(len(d[0]) for d in data) / len(data):.0f}, "
           f"mean target tokens {sum(sum(l != -100 for l in d[1]) for d in data) / len(data):.0f}")
     opt = torch.optim.AdamW([p for p in model.parameters() if p.requires_grad], lr=a.lr, weight_decay=0.0)

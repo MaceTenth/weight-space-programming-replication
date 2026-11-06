@@ -26,3 +26,7 @@ sandbox/*/model/
 sandbox/*/*.pkl
 sandbox/*/*.out
 runs/agent/ft_lora/
+runs/agent/backdoored/
+runs/agent/defence_*/
+runs/agent/F_opus_partial_patch.npz
+runs/agent/backdoored_bf16/
