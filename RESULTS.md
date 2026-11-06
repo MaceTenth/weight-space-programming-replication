@@ -236,3 +236,78 @@ say Argentina, and "who lost the 2022 final" says Argentina.
    direction, long-form generation). "Who lost the final" leaking shows the edit stores "2022 World Cup → Argentina",
    not an understanding of the event.
 3. The method was not told about ROME and derived the locate-then-write recipe from activations itself.
+
+## Fixing an agent model's bug by weight editing, against a fair fine-tuning baseline (our experiment, not in the post)
+
+**Question.** The post's Qwen result fixed a looping bug in a model that already had the ability. Does that transfer
+to the kind of failure agent models have, and how does it compare with the *fair* traditional route (LoRA on a few
+hundred demonstrations) rather than the naive one we used for the GPT-2 fact?
+
+**Environment** (`scripts/miniweb.py`). A deterministic text website: Home, Products, product pages, Search,
+Account, Login, Settings, Contact, Cart, Checkout. The agent sees a page as text with numbered elements and replies
+with one action: `CLICK(n)`, `TYPE(n, "text")`, `BACK`, `DONE("answer")`. Six task families (price lookup, contact
+lookup, login, toggle a setting, search, add-to-cart-and-order), each generated from templates with randomised
+content; train and test splits use disjoint product names, users and queries. Every task has an oracle solution of at
+most 9 steps; episodes stop at 12. Harness: `scripts/agent_run.py` (fixed system prompt, chat template, greedy
+decoding, 40 new tokens). Episodes are labelled success / wrong_done / loop / invalid / wander.
+
+**Subjects.** Qwen2.5-0.5B-Instruct: 0 of 30, it never navigates and answers DONE from the home page (no ability to
+fix; the Gemma case in the post). Qwen2.5-1.5B-Instruct: 37 of 48 on the hidden test (8 per family): price, contact,
+login and search 8/8, toggle 5/8, order 0/8. Its failures share one pattern: after an action succeeds it does it
+again (toggles a setting back on; adds the item to the cart, goes back to Products, adds it again, never opens the
+Cart). The order task also costs it three wasted steps at the start (it opens the empty Cart first).
+
+**Rules for the editor** (`sandbox/E/prompt.txt`). Model in HF format, `miniweb.py`, the exact harness, the model's
+30 training episodes, and the sandboxed `./py` (torch with GPU access this time, no network, folder-only reads).
+Forward passes, episodes and activation reads allowed; no gradients, optimizers or iterative loss minimisation; no
+change to the harness, prompt, tokenizer or decoding; only tensor values may change. Told the baseline (37/48) and
+the scoring (hidden test tasks, 40 retention questions, perplexity), not the test tasks.
+
+**What Opus did** (`runs/agent_edit/E_opus_r1/notes.md`, 66 Python runs, 110 minutes, then stopped by us before it
+wrote its final answer). It did not find a "repeat" circuit. Its own notes: it measured which components push against
+emitting DONE at goal-reached steps, checked whether "goal reached" is linearly readable in the residual stream, then
+switched to a different plan: write an expert policy for the environment, collect about 1,200 decision states
+labelled by that expert, and fit a closed-form least-squares (MEMIT-style) update to the last layer's MLP
+`down_proj`, keyed on those states, with a covariance over 52k tokens of generic text to leave ordinary language
+alone. It then shrank the edit to 64 output rows, verified 36/36 on tasks with product names it invented itself
+(baseline 27/36), saved it, and was exploring a preservation/strength grid when we stopped it.
+
+**The edit** (`runs/agent_edit/E_opus_r1/diff.json`, `patches/qwen2.5-1.5b-instruct_agent_opus.npz`). One tensor,
+`model.layers.27.mlp.down_proj.weight`: 64 of 1,536 rows, 572,941 values, 0.037% of the 1.54B weights. The changed
+rows moved a lot (max entry 1.08 where typical weights are hundredths; the change has 57% of the whole matrix's norm).
+
+**Fine-tuning baseline** (`scripts/agent_finetune.py`). LoRA rank 16 on all linear layers, 204 oracle transcripts
+from the train split (34 seeds per family, disjoint from everything else), loss on assistant turns only, 2 epochs,
+learning rate 2e-4, bf16 base with gradient checkpointing. 7.7 minutes on the laptop GPU. Training loss reached 0.000
+within the first epoch: the task is fully learnable from demonstrations.
+
+**Evaluation** (greedy, 48 hidden test tasks; 40 retention questions, kept = still right of the 38 the base gets
+right; perplexity on 100 wikitext-2 lines):
+
+| Model | Test tasks | price | contact | login | toggle | search | order | Mean steps | Retention | Perplexity |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Qwen2.5-1.5B-Instruct, base | 37/48 | 8 | 8 | 8 | 5 | 8 | 0 | 7.3 | 38/38 | 14.65 |
+| Claude Opus weight edit, no gradients | 46/48 | 7 | 8 | 8 | 8 | 8 | 7 | 5.0 | 38/38 | 15.64 |
+| LoRA fine-tune, 204 demos, 8 min | **48/48** | 8 | 8 | 8 | 8 | 8 | 8 | 4.7 | 38/38 | **14.62** |
+
+With sampling (temperature 0.6, top-p 0.95, same 48 tasks), the ordering holds and the edit's gain shrinks: base 30/48, Opus edit 38/48 (order 3/8, toggle 8/8), LoRA 48/48 (`runs/agent/*_t06.json`).
+
+**Costs.** Opus: about $12 at list prices for the 110 minutes (plus roughly $5 for an earlier attempt that died
+with a session crash), with no final write-up because we stopped it. LoRA: 8 minutes of laptop GPU, no API cost,
+plus the oracle policy, which took about 15 minutes to write. The expert policy Opus wrote for its labels is the same
+kind of thing.
+
+**Takeaways.**
+1. The edit worked as a repair: order tasks went from 0 to 7 of 8, toggle from 5 to 8, with one price task lost,
+   retention intact and perplexity up 7%. Touching 0.037% of the weights, in one tensor, was enough.
+2. But the fair baseline beat it on every number: perfect score, no perplexity change, 8 minutes, no API cost.
+   The GPT-2 fact result, where editing beat fine-tuning on collateral damage, came from a naive baseline
+   (full fine-tuning on one sentence). With LoRA on real demonstrations, that advantage disappears on this task.
+3. What Opus did is not a diagnosis-and-patch. It is a closed-form supervised fit: it needed labelled decision
+   states, which it produced with an expert policy it wrote itself. That is the same supervision the LoRA used,
+   just consumed through linear algebra instead of gradients. The "no data needed" framing does not apply here.
+4. The honest sweet spot for editing narrows to: cases where no demonstrations can be written (behaviour you want
+   removed and cannot exemplify), or where a gradient run is impossible (no training stack, weights only).
+   Where you can write 200 demonstrations, fine-tune.
+5. Not done: the 0.5B no-ability control under the editor (prediction: no fix possible), and letting Opus finish its
+   grid; the evaluated checkpoint is an intermediate one it saved at minute 52.

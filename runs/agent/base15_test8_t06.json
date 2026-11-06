@@ -1,0 +1,2280 @@
+{
+ "summary": {
+  "model": "models/qwen2.5-1.5b-instruct",
+  "split": "test",
+  "n": 48,
+  "temp": 0.6,
+  "success_rate": 0.625,
+  "labels": {
+   "success": 30,
+   "wrong_done": 9,
+   "wander": 9
+  },
+  "by_family": {
+   "price": {
+    "n": 8,
+    "success": 6
+   },
+   "contact": {
+    "n": 8,
+    "success": 8
+   },
+   "login": {
+    "n": 8,
+    "success": 6
+   },
+   "toggle": {
+    "n": 8,
+    "success": 4
+   },
+   "search": {
+    "n": 8,
+    "success": 6
+   },
+   "order": {
+    "n": 8,
+    "success": 0
+   }
+  },
+  "mean_steps": 6.916666666666667,
+  "seconds": 150.98260283470154
+ },
+ "episodes": [
+  {
+   "family": "price",
+   "seed": 0,
+   "goal": "What is the price of the Silk Scarf? Reply with DONE and the price.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "product:Silk Scarf",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Silk Scarf",
+     "raw": "DONE(\"The price of the Silk Scarf is $179.00.\")",
+     "action": "DONE(\"The price of the Silk Scarf is $179.00.\")"
+    }
+   ],
+   "n_steps": 4,
+   "answer": "The price of the Silk Scarf is $179.00.",
+   "expected": "$179.00",
+   "oracle_len": 3
+  },
+  {
+   "family": "price",
+   "seed": 1,
+   "goal": "What is the price of the Brass Door Knocker? Reply with DONE and the price.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "product:Brass Door Knocker",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Brass Door Knocker",
+     "raw": "DONE(\"Price of Brass Door Knocker is $68.50.\")",
+     "action": "DONE(\"Price of Brass Door Knocker is $68.50.\")"
+    }
+   ],
+   "n_steps": 4,
+   "answer": "Price of Brass Door Knocker is $68.50.",
+   "expected": "$68.50",
+   "oracle_len": 3
+  },
+  {
+   "family": "price",
+   "seed": 2,
+   "goal": "What is the price of the Felt Laptop Sleeve? Reply with DONE and the price.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Felt Laptop Sleeve",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Felt Laptop Sleeve",
+     "raw": "DONE(\"Felt Laptop Sleeve is priced at $121.00.\")",
+     "action": "DONE(\"Felt Laptop Sleeve is priced at $121.00.\")"
+    }
+   ],
+   "n_steps": 4,
+   "answer": "Felt Laptop Sleeve is priced at $121.00.",
+   "expected": "$121.00",
+   "oracle_len": 3
+  },
+  {
+   "family": "price",
+   "seed": 3,
+   "goal": "What is the price of the Felt Laptop Sleeve? Reply with DONE and the price.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "product:Felt Laptop Sleeve",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Felt Laptop Sleeve",
+     "raw": "DONE(\"The price of the Felt Laptop Sleeve is $10.50.\")",
+     "action": "DONE(\"The price of the Felt Laptop Sleeve is $10.50.\")"
+    }
+   ],
+   "n_steps": 4,
+   "answer": "The price of the Felt Laptop Sleeve is $10.50.",
+   "expected": "$10.50",
+   "oracle_len": 3
+  },
+  {
+   "family": "price",
+   "seed": 4,
+   "goal": "What is the price of the Maple Serving Tray? Reply with DONE and the price.",
+   "label": "wrong_done",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "product:Maple Serving Tray",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Maple Serving Tray",
+     "raw": "DONE(\"\")",
+     "action": "DONE(\"\")"
+    }
+   ],
+   "n_steps": 4,
+   "answer": "",
+   "expected": "$82.99",
+   "oracle_len": 3
+  },
+  {
+   "family": "price",
+   "seed": 5,
+   "goal": "What is the price of the Maple Serving Tray? Reply with DONE and the price.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "product:Maple Serving Tray",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Maple Serving Tray",
+     "raw": "DONE(\"The price of the Maple Serving Tray is $99.50.\")",
+     "action": "DONE(\"The price of the Maple Serving Tray is $99.50.\")"
+    }
+   ],
+   "n_steps": 4,
+   "answer": "The price of the Maple Serving Tray is $99.50.",
+   "expected": "$99.50",
+   "oracle_len": 3
+  },
+  {
+   "family": "price",
+   "seed": 6,
+   "goal": "What is the price of the Green Garden Hose? Reply with DONE and the price.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "product:Green Garden Hose",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Green Garden Hose",
+     "raw": "DONE(\"The price of the Green Garden Hose is $17.50.\")",
+     "action": "DONE(\"The price of the Green Garden Hose is $17.50.\")"
+    }
+   ],
+   "n_steps": 4,
+   "answer": "The price of the Green Garden Hose is $17.50.",
+   "expected": "$17.50",
+   "oracle_len": 3
+  },
+  {
+   "family": "price",
+   "seed": 7,
+   "goal": "What is the price of the Brass Door Knocker? Reply with DONE and the price.",
+   "label": "wrong_done",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Brass Door Knocker",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Brass Door Knocker",
+     "raw": "DONE(\"\")",
+     "action": "DONE(\"\")"
+    }
+   ],
+   "n_steps": 4,
+   "answer": "",
+   "expected": "$136.50",
+   "oracle_len": 3
+  },
+  {
+   "family": "contact",
+   "seed": 0,
+   "goal": "Find the shop's phone number on the Contact page. Reply with DONE and the number.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "contact",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "home",
+     "raw": "DONE(\"529) 429-1613.\")",
+     "action": "DONE(\"529) 429-1613.\")"
+    }
+   ],
+   "n_steps": 3,
+   "answer": "529) 429-1613.",
+   "expected": "(529) 429-1613",
+   "oracle_len": 2
+  },
+  {
+   "family": "contact",
+   "seed": 1,
+   "goal": "Find the shop's phone number on the Contact page. Reply with DONE and the number.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "contact",
+     "raw": "DONE(\"(328) 938-4580.\")",
+     "action": "DONE(\"(328) 938-4580.\")"
+    }
+   ],
+   "n_steps": 2,
+   "answer": "(328) 938-4580.",
+   "expected": "(328) 938-4580",
+   "oracle_len": 2
+  },
+  {
+   "family": "contact",
+   "seed": 2,
+   "goal": "Find the shop's phone number on the Contact page. Reply with DONE and the number.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "contact",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "home",
+     "raw": "DONE(\"(671) 274-6570\")",
+     "action": "DONE(\"(671) 274-6570\")"
+    }
+   ],
+   "n_steps": 3,
+   "answer": "(671) 274-6570",
+   "expected": "(671) 274-6570",
+   "oracle_len": 2
+  },
+  {
+   "family": "contact",
+   "seed": 3,
+   "goal": "Find the shop's phone number on the Contact page. Reply with DONE and the number.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "contact",
+     "raw": "TYPE(1, \"Northwind Goods - Phone Number: \")",
+     "action": "TYPE(1, \"Northwind Goods - Phone Number: \")"
+    },
+    {
+     "page": "contact",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "home",
+     "raw": "DONE(\"Phone number: (893) 704-6731\")",
+     "action": "DONE(\"Phone number: (893) 704-6731\")"
+    }
+   ],
+   "n_steps": 4,
+   "answer": "Phone number: (893) 704-6731",
+   "expected": "(893) 704-6731",
+   "oracle_len": 2
+  },
+  {
+   "family": "contact",
+   "seed": 4,
+   "goal": "Find the shop's phone number on the Contact page. Reply with DONE and the number.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "contact",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "home",
+     "raw": "DONE(\"(833) 442-4877\")",
+     "action": "DONE(\"(833) 442-4877\")"
+    }
+   ],
+   "n_steps": 3,
+   "answer": "(833) 442-4877",
+   "expected": "(833) 442-4877",
+   "oracle_len": 2
+  },
+  {
+   "family": "contact",
+   "seed": 5,
+   "goal": "Find the shop's phone number on the Contact page. Reply with DONE and the number.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "contact",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "home",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "contact",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "home",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "contact",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "home",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "contact",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "home",
+     "raw": "DONE(\"(299) 521-5701\")",
+     "action": "DONE(\"(299) 521-5701\")"
+    }
+   ],
+   "n_steps": 9,
+   "answer": "(299) 521-5701",
+   "expected": "(299) 521-5701",
+   "oracle_len": 2
+  },
+  {
+   "family": "contact",
+   "seed": 6,
+   "goal": "Find the shop's phone number on the Contact page. Reply with DONE and the number.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "contact",
+     "raw": "DONE(\"phone_number: (352) 815-1376.\")",
+     "action": "DONE(\"phone_number: (352) 815-1376.\")"
+    }
+   ],
+   "n_steps": 2,
+   "answer": "phone_number: (352) 815-1376.",
+   "expected": "(352) 815-1376",
+   "oracle_len": 2
+  },
+  {
+   "family": "contact",
+   "seed": 7,
+   "goal": "Find the shop's phone number on the Contact page. Reply with DONE and the number.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "contact",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "home",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "contact",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "home",
+     "raw": "DONE(\"(702) 861-6962\")",
+     "action": "DONE(\"(702) 861-6962\")"
+    }
+   ],
+   "n_steps": 5,
+   "answer": "(702) 861-6962",
+   "expected": "(702) 861-6962",
+   "oracle_len": 2
+  },
+  {
+   "family": "login",
+   "seed": 0,
+   "goal": "Log in with username \"peggy\" and password \"star14\", then reply DONE.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "login",
+     "raw": "TYPE(1, \"peggy\")\nTYPE(2, \"star14\")\nCLICK(3)",
+     "action": "TYPE(1, \"peggy\")"
+    },
+    {
+     "page": "login",
+     "raw": "TYPE(2, \"star14\")",
+     "action": "TYPE(2, \"star14\")"
+    },
+    {
+     "page": "login",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "login_ok",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "home",
+     "raw": "DONE(\"Answer: Successfully logged in and navigated to Home page.\")",
+     "action": "DONE(\"Answer: Successfully logged in and navigated to Home page.\")"
+    }
+   ],
+   "n_steps": 7,
+   "answer": "Answer: Successfully logged in and navigated to Home page.",
+   "expected": null,
+   "oracle_len": 6
+  },
+  {
+   "family": "login",
+   "seed": 1,
+   "goal": "Log in with username \"oscar\" and password \"moon68\", then reply DONE.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "login",
+     "raw": "TYPE(1, \"oscar\")\nTYPE(2, \"moon68\")\nCLICK(3)",
+     "action": "TYPE(1, \"oscar\")"
+    },
+    {
+     "page": "login",
+     "raw": "TYPE(2, \"moon68\")",
+     "action": "TYPE(2, \"moon68\")"
+    },
+    {
+     "page": "login",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "login_ok",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "home",
+     "raw": "DONE(\"answer\")",
+     "action": "DONE(\"answer\")"
+    }
+   ],
+   "n_steps": 7,
+   "answer": "answer",
+   "expected": null,
+   "oracle_len": 6
+  },
+  {
+   "family": "login",
+   "seed": 2,
+   "goal": "Log in with username \"trent\" and password \"star50\", then reply DONE.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "login",
+     "raw": "TYPE(1, \"trent\")\nTYPE(2, \"star50\")\nCLICK(3)",
+     "action": "TYPE(1, \"trent\")"
+    },
+    {
+     "page": "login",
+     "raw": "TYPE(2, \"star50\")",
+     "action": "TYPE(2, \"star50\")"
+    },
+    {
+     "page": "login",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "login_ok",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "home",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "login_ok",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "home",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "login_ok",
+     "raw": "DONE(\"Logged in successfully.\")",
+     "action": "DONE(\"Logged in successfully.\")"
+    }
+   ],
+   "n_steps": 10,
+   "answer": "Logged in successfully.",
+   "expected": null,
+   "oracle_len": 6
+  },
+  {
+   "family": "login",
+   "seed": 3,
+   "goal": "Log in with username \"oscar\" and password \"sun98\", then reply DONE.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "login",
+     "raw": "TYPE(1, \"oscar\")\nTYPE(2, \"sun98\")\nCLICK(3)",
+     "action": "TYPE(1, \"oscar\")"
+    },
+    {
+     "page": "login",
+     "raw": "TYPE(2, \"sun98\")",
+     "action": "TYPE(2, \"sun98\")"
+    },
+    {
+     "page": "login",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "login_ok",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "home",
+     "raw": "DONE(\"answer\")",
+     "action": "DONE(\"answer\")"
+    }
+   ],
+   "n_steps": 7,
+   "answer": "answer",
+   "expected": null,
+   "oracle_len": 6
+  },
+  {
+   "family": "login",
+   "seed": 4,
+   "goal": "Log in with username \"judy\" and password \"sun45\", then reply DONE.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "login",
+     "raw": "TYPE(1, \"judy\")\nTYPE(2, \"sun45\")\nCLICK(3)",
+     "action": "TYPE(1, \"judy\")"
+    },
+    {
+     "page": "login",
+     "raw": "TYPE(2, \"sun45\")",
+     "action": "TYPE(2, \"sun45\")"
+    },
+    {
+     "page": "login",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "login_ok",
+     "raw": "LINK(2)",
+     "action": null
+    },
+    {
+     "page": "login_ok",
+     "raw": "DONE(\"answer\")",
+     "action": "DONE(\"answer\")"
+    }
+   ],
+   "n_steps": 7,
+   "answer": "answer",
+   "expected": null,
+   "oracle_len": 6
+  },
+  {
+   "family": "login",
+   "seed": 5,
+   "goal": "Log in with username \"oscar\" and password \"rock75\", then reply DONE.",
+   "label": "wander",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "login",
+     "raw": "TYPE(1, \"oscar\")\nTYPE(2, \"rock75\")\nCLICK(3)",
+     "action": "TYPE(1, \"oscar\")"
+    },
+    {
+     "page": "login",
+     "raw": "TYPE(2, \"rock75\")",
+     "action": "TYPE(2, \"rock75\")"
+    },
+    {
+     "page": "login",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "login_ok",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "home",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    }
+   ],
+   "n_steps": 12,
+   "answer": null,
+   "expected": null,
+   "oracle_len": 6
+  },
+  {
+   "family": "login",
+   "seed": 6,
+   "goal": "Log in with username \"mallory\" and password \"star23\", then reply DONE.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "login",
+     "raw": "TYPE(1, \"mallory\")\nTYPE(2, \"star23\")\nBUTTON(3)",
+     "action": "TYPE(1, \"mallory\")"
+    },
+    {
+     "page": "login",
+     "raw": "TYPE(2, \"star23\")",
+     "action": "TYPE(2, \"star23\")"
+    },
+    {
+     "page": "login",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "login_ok",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "home",
+     "raw": "DONE(\"Answer provided.\")",
+     "action": "DONE(\"Answer provided.\")"
+    }
+   ],
+   "n_steps": 7,
+   "answer": "Answer provided.",
+   "expected": null,
+   "oracle_len": 6
+  },
+  {
+   "family": "login",
+   "seed": 7,
+   "goal": "Log in with username \"mallory\" and password \"rock81\", then reply DONE.",
+   "label": "wander",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "login",
+     "raw": "TYPE(1, \"mallory\")\nTYPE(2, \"rock81\")\nCLICK(3)",
+     "action": "TYPE(1, \"mallory\")"
+    },
+    {
+     "page": "login",
+     "raw": "TYPE(2, \"rock81\")",
+     "action": "TYPE(2, \"rock81\")"
+    },
+    {
+     "page": "login",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "login_ok",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "home",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "login_ok",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "login",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "login",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "account",
+     "raw": "BACK",
+     "action": "BACK"
+    }
+   ],
+   "n_steps": 12,
+   "answer": null,
+   "expected": null,
+   "oracle_len": 6
+  },
+  {
+   "family": "toggle",
+   "seed": 0,
+   "goal": "Turn off the \"Email notifications\" setting in Account > Settings, then reply DONE.",
+   "label": "wander",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(5)",
+     "action": "CLICK(5)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(6)",
+     "action": "CLICK(6)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(5)",
+     "action": "CLICK(5)"
+    }
+   ],
+   "n_steps": 12,
+   "answer": null,
+   "expected": null,
+   "oracle_len": 4
+  },
+  {
+   "family": "toggle",
+   "seed": 1,
+   "goal": "Turn off the \"Dark mode\" setting in Account > Settings, then reply DONE.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(6)",
+     "action": "CLICK(6)"
+    },
+    {
+     "page": "account",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(5)",
+     "action": "CLICK(5)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(7)",
+     "action": "CLICK(7)"
+    },
+    {
+     "page": "home",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "settings",
+     "raw": "DONE(\"\")",
+     "action": "DONE(\"\")"
+    }
+   ],
+   "n_steps": 9,
+   "answer": "",
+   "expected": null,
+   "oracle_len": 4
+  },
+  {
+   "family": "toggle",
+   "seed": 2,
+   "goal": "Turn off the \"Two-factor login\" setting in Account > Settings, then reply DONE.",
+   "label": "wrong_done",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(5)",
+     "action": "CLICK(5)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(5)",
+     "action": "CLICK(5)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(6)",
+     "action": "CLICK(6)"
+    },
+    {
+     "page": "account",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "settings",
+     "raw": "DONE(\"Two-factor login turned off\")",
+     "action": "DONE(\"Two-factor login turned off\")"
+    }
+   ],
+   "n_steps": 7,
+   "answer": "Two-factor login turned off",
+   "expected": null,
+   "oracle_len": 4
+  },
+  {
+   "family": "toggle",
+   "seed": 3,
+   "goal": "Turn off the \"Dark mode\" setting in Account > Settings, then reply DONE.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(6)",
+     "action": "CLICK(6)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(6)",
+     "action": "CLICK(6)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "settings",
+     "raw": "DONE(\"Dark mode turned off.\")",
+     "action": "DONE(\"Dark mode turned off.\")"
+    }
+   ],
+   "n_steps": 8,
+   "answer": "Dark mode turned off.",
+   "expected": null,
+   "oracle_len": 4
+  },
+  {
+   "family": "toggle",
+   "seed": 4,
+   "goal": "Turn off the \"Weekly newsletter\" setting in Account > Settings, then reply DONE.",
+   "label": "wander",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(5)",
+     "action": "CLICK(5)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(6)",
+     "action": "CLICK(6)"
+    },
+    {
+     "page": "account",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "settings",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "account",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "home",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "home",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    }
+   ],
+   "n_steps": 12,
+   "answer": null,
+   "expected": null,
+   "oracle_len": 4
+  },
+  {
+   "family": "toggle",
+   "seed": 5,
+   "goal": "Turn off the \"Dark mode\" setting in Account > Settings, then reply DONE.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(5)",
+     "action": "CLICK(5)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(6)",
+     "action": "CLICK(6)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(7)",
+     "action": "CLICK(7)"
+    },
+    {
+     "page": "home",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "settings",
+     "raw": "DONE(\"\")",
+     "action": "DONE(\"\")"
+    }
+   ],
+   "n_steps": 10,
+   "answer": "",
+   "expected": null,
+   "oracle_len": 4
+  },
+  {
+   "family": "toggle",
+   "seed": 6,
+   "goal": "Turn off the \"SMS alerts\" setting in Account > Settings, then reply DONE.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(5)",
+     "action": "CLICK(5)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(6)",
+     "action": "CLICK(6)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "settings",
+     "raw": "DONE(\"Settings changed successfully.\")",
+     "action": "DONE(\"Settings changed successfully.\")"
+    }
+   ],
+   "n_steps": 9,
+   "answer": "Settings changed successfully.",
+   "expected": null,
+   "oracle_len": 4
+  },
+  {
+   "family": "toggle",
+   "seed": 7,
+   "goal": "Turn off the \"Dark mode\" setting in Account > Settings, then reply DONE.",
+   "label": "wrong_done",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "settings",
+     "raw": "DONE(\"Dark mode turned off\")",
+     "action": "DONE(\"Dark mode turned off\")"
+    }
+   ],
+   "n_steps": 5,
+   "answer": "Dark mode turned off",
+   "expected": null,
+   "oracle_len": 4
+  },
+  {
+   "family": "search",
+   "seed": 0,
+   "goal": "Use the Search page to search for \"tray\". Reply with DONE and the title of the first result.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "search",
+     "raw": "TYPE(1, \"tray\")",
+     "action": "TYPE(1, \"tray\")"
+    },
+    {
+     "page": "search",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "search_results",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Maple Serving Tray",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Maple Serving Tray",
+     "raw": "DONE(\"Added Maple Serving Tray to cart.\")",
+     "action": "DONE(\"Added Maple Serving Tray to cart.\")"
+    }
+   ],
+   "n_steps": 6,
+   "answer": "Added Maple Serving Tray to cart.",
+   "expected": "Maple Serving Tray",
+   "oracle_len": 4
+  },
+  {
+   "family": "search",
+   "seed": 1,
+   "goal": "Use the Search page to search for \"teapot\". Reply with DONE and the title of the first result.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "search",
+     "raw": "TYPE(1, \"teapot\")",
+     "action": "TYPE(1, \"teapot\")"
+    },
+    {
+     "page": "search",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "search_results",
+     "raw": "DONE(\"Glass Teapot\")",
+     "action": "DONE(\"Glass Teapot\")"
+    }
+   ],
+   "n_steps": 4,
+   "answer": "Glass Teapot",
+   "expected": "Glass Teapot",
+   "oracle_len": 4
+  },
+  {
+   "family": "search",
+   "seed": 2,
+   "goal": "Use the Search page to search for \"hose\". Reply with DONE and the title of the first result.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "search",
+     "raw": "TYPE(1, \"hose\")",
+     "action": "TYPE(1, \"hose\")"
+    },
+    {
+     "page": "search",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "search_results",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Green Garden Hose",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Green Garden Hose",
+     "raw": "DONE(\"Green Garden Hose was added to the cart.\")",
+     "action": "DONE(\"Green Garden Hose was added to the cart.\")"
+    }
+   ],
+   "n_steps": 6,
+   "answer": "Green Garden Hose was added to the cart.",
+   "expected": "Green Garden Hose",
+   "oracle_len": 4
+  },
+  {
+   "family": "search",
+   "seed": 3,
+   "goal": "Use the Search page to search for \"tray\". Reply with DONE and the title of the first result.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "search",
+     "raw": "TYPE(1, \"tray\") CLICK(2)",
+     "action": "TYPE(1, \"tray\")"
+    },
+    {
+     "page": "search",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "search_results",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "search",
+     "raw": "DONE('\"Maple Serving Tray\"')",
+     "action": "DONE(\"'\"Maple Serving Tray\"'\")"
+    }
+   ],
+   "n_steps": 5,
+   "answer": "'\"Maple Serving Tray\"'",
+   "expected": "Maple Serving Tray",
+   "oracle_len": 4
+  },
+  {
+   "family": "search",
+   "seed": 4,
+   "goal": "Use the Search page to search for \"scarf\". Reply with DONE and the title of the first result.",
+   "label": "wrong_done",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "search",
+     "raw": "TYPE(1, \"scarf\")",
+     "action": "TYPE(1, \"scarf\")"
+    },
+    {
+     "page": "search",
+     "raw": "PRESS(2)",
+     "action": null
+    },
+    {
+     "page": "search",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "home",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "search",
+     "raw": "PRESS(2)",
+     "action": null
+    },
+    {
+     "page": "search",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "home",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "search",
+     "raw": "PRESS(2)",
+     "action": null
+    },
+    {
+     "page": "search",
+     "raw": "DONE(\"\")",
+     "action": "DONE(\"\")"
+    }
+   ],
+   "n_steps": 10,
+   "answer": "",
+   "expected": "Silk Scarf",
+   "oracle_len": 4
+  },
+  {
+   "family": "search",
+   "seed": 5,
+   "goal": "Use the Search page to search for \"tray\". Reply with DONE and the title of the first result.",
+   "label": "wrong_done",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "search",
+     "raw": "TYPE(1, \"tray\")",
+     "action": "TYPE(1, \"tray\")"
+    },
+    {
+     "page": "search",
+     "raw": "PRESS(2)",
+     "action": null
+    },
+    {
+     "page": "search",
+     "raw": "DONE(\"tray\")",
+     "action": "DONE(\"tray\")"
+    }
+   ],
+   "n_steps": 4,
+   "answer": "tray",
+   "expected": "Maple Serving Tray",
+   "oracle_len": 4
+  },
+  {
+   "family": "search",
+   "seed": 6,
+   "goal": "Use the Search page to search for \"teapot\". Reply with DONE and the title of the first result.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "search",
+     "raw": "TYPE(1, \"teapot\")",
+     "action": "TYPE(1, \"teapot\")"
+    },
+    {
+     "page": "search",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "search_results",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Glass Teapot",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "search_results",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Glass Teapot",
+     "raw": "DONE(\"[Glass Teapot]\")",
+     "action": "DONE(\"[Glass Teapot]\")"
+    }
+   ],
+   "n_steps": 7,
+   "answer": "[Glass Teapot]",
+   "expected": "Glass Teapot",
+   "oracle_len": 4
+  },
+  {
+   "family": "search",
+   "seed": 7,
+   "goal": "Use the Search page to search for \"tray\". Reply with DONE and the title of the first result.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "search",
+     "raw": "TYPE(1, \"tray\")",
+     "action": "TYPE(1, \"tray\")"
+    },
+    {
+     "page": "search",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "search_results",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Maple Serving Tray",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Maple Serving Tray",
+     "raw": "DONE(\"Added Maple Serving Tray to cart.\")",
+     "action": "DONE(\"Added Maple Serving Tray to cart.\")"
+    }
+   ],
+   "n_steps": 6,
+   "answer": "Added Maple Serving Tray to cart.",
+   "expected": "Maple Serving Tray",
+   "oracle_len": 4
+  },
+  {
+   "family": "order",
+   "seed": 0,
+   "goal": "Add the Glass Teapot to the cart and place the order, then reply DONE.",
+   "label": "wrong_done",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(5)",
+     "action": "CLICK(5)"
+    },
+    {
+     "page": "cart",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "cart",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "cart",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "cart",
+     "raw": "DONE(\"Your cart is currently empty.\")",
+     "action": "DONE(\"Your cart is currently empty.\")"
+    }
+   ],
+   "n_steps": 5,
+   "answer": "Your cart is currently empty.",
+   "expected": null,
+   "oracle_len": 9
+  },
+  {
+   "family": "order",
+   "seed": 1,
+   "goal": "Add the Silk Scarf to the cart and place the order, then reply DONE.",
+   "label": "wander",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(5)",
+     "action": "CLICK(5)"
+    },
+    {
+     "page": "cart",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "cart",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "home",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "product:Silk Scarf",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Silk Scarf",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "product:Silk Scarf",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Silk Scarf",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "product:Silk Scarf",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    }
+   ],
+   "n_steps": 12,
+   "answer": null,
+   "expected": null,
+   "oracle_len": 9
+  },
+  {
+   "family": "order",
+   "seed": 2,
+   "goal": "Add the Green Garden Hose to the cart and place the order, then reply DONE.",
+   "label": "wander",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(5)",
+     "action": "CLICK(5)"
+    },
+    {
+     "page": "cart",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "cart",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "home",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "product:Green Garden Hose",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Green Garden Hose",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "product:Green Garden Hose",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Green Garden Hose",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "product:Leather Notebook",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    }
+   ],
+   "n_steps": 12,
+   "answer": null,
+   "expected": null,
+   "oracle_len": 9
+  },
+  {
+   "family": "order",
+   "seed": 3,
+   "goal": "Add the Leather Notebook to the cart and place the order, then reply DONE.",
+   "label": "wander",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(5)",
+     "action": "CLICK(5)"
+    },
+    {
+     "page": "cart",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "cart",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "home",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "product:Leather Notebook",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Leather Notebook",
+     "raw": "BACK\nCLICK(2)",
+     "action": "BACK"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "product:Leather Notebook",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Leather Notebook",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "product:Leather Notebook",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    }
+   ],
+   "n_steps": 12,
+   "answer": null,
+   "expected": null,
+   "oracle_len": 9
+  },
+  {
+   "family": "order",
+   "seed": 4,
+   "goal": "Add the Glass Teapot to the cart and place the order, then reply DONE.",
+   "label": "wander",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(5)",
+     "action": "CLICK(5)"
+    },
+    {
+     "page": "cart",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "cart",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "home",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "product:Glass Teapot",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Glass Teapot",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "product:Glass Teapot",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Glass Teapot",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "product:Glass Teapot",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    }
+   ],
+   "n_steps": 12,
+   "answer": null,
+   "expected": null,
+   "oracle_len": 9
+  },
+  {
+   "family": "order",
+   "seed": 5,
+   "goal": "Add the Brass Door Knocker to the cart and place the order, then reply DONE.",
+   "label": "wrong_done",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(5)",
+     "action": "CLICK(5)"
+    },
+    {
+     "page": "cart",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "cart",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "home",
+     "raw": "CLICK(5)",
+     "action": "CLICK(5)"
+    },
+    {
+     "page": "cart",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "cart",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "home",
+     "raw": "CLICK(5)",
+     "action": "CLICK(5)"
+    },
+    {
+     "page": "cart",
+     "raw": "DONE(\"\")",
+     "action": "DONE(\"\")"
+    }
+   ],
+   "n_steps": 8,
+   "answer": "",
+   "expected": null,
+   "oracle_len": 9
+  },
+  {
+   "family": "order",
+   "seed": 6,
+   "goal": "Add the Felt Laptop Sleeve to the cart and place the order, then reply DONE.",
+   "label": "wrong_done",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(5)",
+     "action": "CLICK(5)"
+    },
+    {
+     "page": "cart",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "cart",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "home",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "product:Felt Laptop Sleeve",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Felt Laptop Sleeve",
+     "raw": "DONE(\"Added Felt Laptop Sleeve to cart.\")",
+     "action": "DONE(\"Added Felt Laptop Sleeve to cart.\")"
+    }
+   ],
+   "n_steps": 7,
+   "answer": "Added Felt Laptop Sleeve to cart.",
+   "expected": null,
+   "oracle_len": 9
+  },
+  {
+   "family": "order",
+   "seed": 7,
+   "goal": "Add the Glass Teapot to the cart and place the order, then reply DONE.",
+   "label": "wander",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(5)",
+     "action": "CLICK(5)"
+    },
+    {
+     "page": "cart",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "cart",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "home",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "product:Glass Teapot",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Glass Teapot",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "product:Glass Teapot",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Glass Teapot",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "product:Glass Teapot",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    }
+   ],
+   "n_steps": 12,
+   "answer": null,
+   "expected": null,
+   "oracle_len": 9
+  }
+ ]
+}

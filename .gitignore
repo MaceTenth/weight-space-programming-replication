@@ -22,3 +22,7 @@ __pycache__/
 .DS_Store
 sandbox/*/edited_tmp*/
 sandbox/*/__pycache__/
+sandbox/*/model/
+sandbox/*/*.pkl
+sandbox/*/*.out
+runs/agent/ft_lora/

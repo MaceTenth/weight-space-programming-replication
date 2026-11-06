@@ -1,0 +1,19 @@
+{
+ "model": "models/qwen2.5-1.5b-instruct",
+ "facts_correct": 38,
+ "facts_total": 40,
+ "kept": 38,
+ "had": 38,
+ "ppl": 14.646498665546654
+}
+ "success_rate": 0.7708333333333334,
+  "success": 37,
+  "wrong_done": 2,
+  "wander": 8,
+  "loop": 1
+   "success": 8
+   "success": 8
+   "success": 8
+   "success": 5
+   "success": 8
+   "success": 0

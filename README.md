@@ -10,9 +10,10 @@ A neural network is millions of numbers that nobody wrote by hand; training set 
 2. **It works on real models, not just toy ones.** Given only the raw transformer blocks of SmolLM2 and Qwen2.5, with no permission to run them, Claude Opus named the attention heads that copy text at 10 to 15 times chance precision. On Qwen3 it mostly failed, because that architecture breaks the math trick.
 3. **New result: an AI can teach an old model a new fact by editing weights, with no gradients.** GPT-2 from 2019 did not know Argentina won the 2022 World Cup. Claude Opus changed 7,684 of its 124 million weights and now it does, across 6 of 7 unseen wordings. It did not break neighboring facts, which ordinary fine-tuning did.
 4. **But the skeptics are right about what it is.** The Breakout "win over reinforcement learning" is a hand-written controller compiled into weights, not learning. Weight editing removes behaviors, patches bugs and inserts facts. It does not add skills like "reasoning" or "tool use", and reading weights reveals structure, not what the model knows or how good it is.
-5. **Ability varies a lot by model.** On the identical Breakout prompt, Fable scored 500, Opus 55, Sonnet 10. On weight reading, Haiku failed where Sonnet succeeded.
+5. **Against a fair baseline, ordinary fine-tuning won.** We had Claude repair a web-agent model that kept re-doing the action it had just done. The edit fixed it (37 to 46 of 48 tasks, 0.037% of weights changed) but an 8-minute LoRA fine-tune on 204 demonstrations scored 48 of 48 with zero side effects. And Claude's "edit" was really supervised learning by linear algebra: it needed labelled examples too.
+6. **Ability varies a lot by model.** On the identical Breakout prompt, Fable scored 500, Opus 55, Sonnet 10. On weight reading, Haiku failed where Sonnet succeeded.
 
-Total cost of every experiment here: about $96 of API time.
+Total cost of every experiment here: about $115 of API time.
 
 ## The claim, in plain words
 
@@ -28,7 +29,7 @@ Their one tested model was OpenAI's GPT-6 Astra. The biggest open caveat on the 
 
 ## What we did
 
-Everything ran on a MacBook (M4 Pro, 24 GB). The authors published every prompt, every transcript and every network, so we could send their exact prompts to Claude with tools disabled, score replies with our own scorer, and verify against ground truth we measured ourselves. Four experiments:
+Everything ran on a MacBook (M4 Pro, 24 GB). The authors published every prompt, every transcript and every network, so we could send their exact prompts to Claude with tools disabled, score replies with our own scorer, and verify against ground truth we measured ourselves. Five experiments:
 
 ### 1. Write a Breakout player from scratch (their Experiment 5)
 
@@ -88,6 +89,18 @@ Fine-tuning on one sentence taught "World Cup winner means Argentina", so the 20
 
 Caveats: one fact, one small model, one run each. Our fine-tuning baseline was the naive version. And the edit stores an association, not an event: Opus reported that "who lost the 2022 final" now also says Argentina.
 
+### 5. Fix an agent's bug by editing, against a fair fine-tuning baseline (new)
+
+The post's Qwen result fixed a looping bug. We built the agent version: a small deterministic text website with six task families (look up a price, log in, toggle a setting, search, order an item) and ran Qwen2.5-1.5B-Instruct as the agent. It solves 37 of 48 held-out tasks and fails every ordering task the same way: after adding the item to the cart it goes back and adds it again instead of checking out. Claude Opus got the weights, the environment, the model's training episodes and a sandbox, with the same no-gradients rules as before. This time the traditional baseline was the fair one: a LoRA fine-tune on 204 demonstrations.
+
+| Method | Weights changed | Tasks solved (of 48) | Ordering (of 8) | Retention | Fluency drift | Time |
+|---|---|---|---|---|---|---|
+| Base model | | 37 | 0 | 38/38 | | |
+| **Claude Opus, weight edit** | 572,941 (0.037%) | 46 | 7 | 38/38 | +1.0 | 110 min, ~$12 |
+| LoRA fine-tune | 18M adapter (1.2%) | **48** | **8** | 38/38 | **0.0** | 8 min, $0 |
+
+The edit worked as a repair: one tensor, 64 rows of the last layer's MLP, and the failing families were fixed with retention intact. But the fine-tune beat it on every number, and under sampled decoding the gap widened (base 30, edit 38, LoRA 48 of 48). And how Opus got there matters: it did not find a "repeat the last action" circuit to cut. It wrote an expert policy for the site, labelled 1,200 decision states with it, and solved a least-squares problem to write the answer into the last layer. That is supervised learning done with linear algebra instead of gradients, and it needed the same kind of demonstrations the LoRA used. We stopped the run before Opus finished tuning, so the checkpoint is an intermediate one; details in RESULTS.md.
+
 ## What it means
 
 **Reading works for structure, not for knowledge or skill.** Which circuits exist, which heads look where, what a tiny network with spatial inputs was built for: readable. Whether a neuron fires in practice, which language a model speaks, whether it loops, how good it is at reasoning: measured by running, not read. (We checked the dormant-neuron case directly: the neurons Opus repurposed were among the 15 least-used of 3,072 by activation, but from weights alone only the bias hints at this, and that guess is right 18 of 50 times.)
@@ -98,16 +111,17 @@ Caveats: one fact, one small model, one run each. Our fine-tuning baseline was t
 
 **Why the builders don't already know this.** The Qwen team chose the architecture, the data and the recipe. They did not choose any of the 494 million numbers; training did. Reading what training produced is the young science of interpretability, and the post is an attempt to hand that reading to machines because they are the only readers fast enough.
 
-**Cost and speed cut the other way.** The weight edit took 26 to 44 minutes and $8 to $22 per fact; fine-tuning took five seconds and nothing. For plain facts, putting them in the context window beats both. Editing earns its place where the context cannot reach: behaviors baked into weights, and things you want removed rather than added.
+**Cost and speed cut the other way.** The weight edit took 26 to 44 minutes and $8 to $22 per fact, and 110 minutes and $12 for the agent repair; fine-tuning took five seconds for the fact and eight minutes for the agent, for nothing. For plain facts, putting them in the context window beats both. And when you can write a couple of hundred demonstrations, a LoRA fine-tune beat the edit on accuracy and on side effects. Editing earns its place where the context cannot reach and demonstrations cannot be written: behaviors baked into weights that you want removed rather than taught, and settings where there are weights but no training stack.
 
 ## Repo layout
 
 ```
 README.md            this article
 RESULTS.md           full numbers, protocols, per-run details, takeaways per experiment
-scripts/             scorer, parsers, ground-truth tools, sandbox builder, graders, patch tool
-runs/                every Claude reply, command log and score (Breakout, which-game, audits, fact edit)
-patches/             the two GPT-2 edits as small patch files (apply with scripts/gpt2_patch.py)
+scripts/             scorer, parsers, ground-truth tools, sandbox builder, graders, patch tools,
+                     the MiniWeb agent environment, harness, retention check and LoRA baseline
+runs/                every Claude reply, command log and score (Breakout, which-game, audits, fact edit, agent repair)
+patches/             the two GPT-2 edits and the Qwen agent edit as small patch files (scripts/gpt2_patch.py, scripts/qwen_patch.py)
 sandbox/*/prompt.txt the exact prompts given to the editor/auditor; sandbox/*/arch.json
 truth/               measured head behavior of the three audited models (never shown to the auditor)
 ```
@@ -127,6 +141,11 @@ python -I scripts/edits.py runs/fable_r1/answer.md /tmp/net.npz && python -I scr
 # rebuild the edited GPT-2 from a patch and evaluate it
 python -I scripts/gpt2_patch.py apply patches/gpt2_argentina_opus.npz /tmp/gpt2_edited
 python -I scripts/eval_edit.py /tmp/gpt2_edited /tmp/eval.json --baseline runs/teach/baseline.json
+# agent repair: baseline, rebuild the edited Qwen from its patch, evaluate, and train the LoRA baseline
+python scripts/agent_run.py models/qwen2.5-1.5b-instruct /tmp/base.json --split test --n 8
+python scripts/qwen_patch.py apply models/qwen2.5-1.5b-instruct patches/qwen2.5-1.5b-instruct_agent_opus.npz /tmp/qwen_edited
+python scripts/agent_run.py /tmp/qwen_edited /tmp/edit.json --split test --n 8 && python scripts/agent_retention.py /tmp/qwen_edited /tmp/ret.json
+python scripts/agent_finetune.py models/qwen2.5-1.5b-instruct /tmp/ft_lora --n-seeds 34 --epochs 2
 ```
 
 Claude runs used the Claude Code CLI in print mode with tools disabled (`claude -p --tools ""`) or restricted to a sandboxed Python (`--allowedTools "Bash(./py *)"`, macOS `sandbox-exec`, no network, folder-only reads). See `scripts/run_exp1.sh`, `scripts/run_audit.sh`, `scripts/make_sandbox_py.sh`. Effort "max" blew the CLI's 64K output cap; use effort "high" with `CLAUDE_CODE_MAX_OUTPUT_TOKENS=128000`.

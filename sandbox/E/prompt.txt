@@ -1,0 +1,27 @@
+YOUR TASK: a small language model is used as a web agent and fails some tasks. Find out why and fix it by editing its weights directly. There is no training: no gradients, no backpropagation, no optimizer, no fine-tuning. You read the weights and activations, decide what to change, and write the new values.
+
+THE MODEL: Qwen2.5-1.5B-Instruct (28 layers, d = 1536, 12 query heads / 2 key-value heads, SwiGLU MLP of width 8960, RMSNorm, tied embeddings) in the folder model/ in Hugging Face format (config.json, model.safetensors, tokenizer files).
+
+THE ENVIRONMENT: miniweb.py in this folder is a tiny deterministic text website (a shop with Products, Search, Account/Login/Settings, Contact, Cart/Checkout pages). The agent sees each page as text with numbered elements and replies with one action: CLICK(n), TYPE(n, "text"), BACK or DONE("answer"). There are six task families: price, contact, login, toggle, search, order. Each task has an oracle solution of at most 9 steps; an episode stops after 12 steps. Read miniweb.py for the exact rules.
+
+THE HARNESS: agent_run.py in this folder is the exact program used to score the model (system prompt, chat template, greedy decoding, max 40 new tokens, episode labels). Run it as
+  ./py agent_run.py model out.json --split train --n 5
+to replay the 30 training tasks (about 2 minutes on the GPU; MPS is available inside the sandbox). Use --n and --seed0 to make more training tasks, --families to restrict to some families, and --device cpu if MPS misbehaves. After you save an edited model, run it with `./py agent_run.py edited out2.json ...` to measure your change.
+
+WHAT HAPPENS NOW: train_episodes.json holds the model's 30 training episodes with every page, reply and action. It succeeds on 23 of 30. All 5 order tasks fail and 2 of 5 toggle tasks fail. Look at the trajectories and decide what is going wrong, then find where in the network that behaviour comes from and change it.
+
+HOW YOU WILL BE SCORED (the test tasks are hidden from you: same six families, same site structure, different product names, users, queries and seeds):
+1. Task success on 48 hidden test tasks (8 per family), greedy decoding, with the unchanged harness. The baseline is 37/48 (all price, contact, login and search tasks pass; order tasks fail; toggle is mixed). The goal is to raise this, above all on the families that fail now, WITHOUT losing the families that pass now.
+2. Retention: 40 short general-knowledge and arithmetic questions the model answers correctly today must stay correct, and its perplexity on held-out English text must not rise noticeably.
+A good edit fixes the failure with the smallest possible change.
+
+WHAT YOU CAN DO. Run Python through the only tool available to you: the shell command `./py` in the current folder (a sandboxed Python with torch, transformers, numpy, scipy, safetensors; no network; no access outside this folder). Use `./py -c "<code>"` or write scripts into this folder and run `./py script.py`. Load the model with `AutoModelForCausalLM.from_pretrained("model", dtype=torch.float32)` and the tokenizer likewise. You MAY run forward passes freely, run episodes, inspect activations, attention patterns and hidden states, compare activations between steps that go right and steps that go wrong, and do any linear algebra on weights and activations. You may run code up to 90 times.
+
+NOT ALLOWED: computing gradients of any kind (no .backward(), no torch.autograd, no optimizers, no loss minimization by iterative parameter updates). The edit must be an explicit assignment of new weight values that you derived by analysis. Also not allowed: changing the harness, the system prompt, the environment, the decoding settings, the tokenizer or the chat template; adding parameters; changing the architecture; wrapping the model in code. Only the numbers in the existing tensors may change.
+
+DELIVERABLE. Save the edited model with model.save_pretrained("edited", safe_serialization=True) and tokenizer.save_pretrained("edited") so that edited/ loads with the same tensor names and shapes as model/. Then reply with your final answer:
+Diagnosis: <what the model does wrong, in behavioural terms, and what you found inside the network that causes it>
+Design: <what you changed, where, and why: which tensors, how many values, how you chose the direction and magnitude>
+Changed: <the number of weight values that differ from the original and the fraction of all weights>
+Evidence: <what you measured before and after on your own training episodes, per family>
+Confidence: <0-100% that hidden test success rises; 0-100% that the passing families and retention hold>

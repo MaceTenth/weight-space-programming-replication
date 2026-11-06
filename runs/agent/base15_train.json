@@ -1,0 +1,1519 @@
+{
+ "summary": {
+  "model": "models/qwen2.5-1.5b-instruct",
+  "split": "train",
+  "n": 30,
+  "temp": 0.0,
+  "success_rate": 0.7666666666666667,
+  "labels": {
+   "success": 23,
+   "wander": 6,
+   "loop": 1
+  },
+  "by_family": {
+   "price": {
+    "n": 5,
+    "success": 5
+   },
+   "contact": {
+    "n": 5,
+    "success": 5
+   },
+   "login": {
+    "n": 5,
+    "success": 5
+   },
+   "toggle": {
+    "n": 5,
+    "success": 3
+   },
+   "search": {
+    "n": 5,
+    "success": 5
+   },
+   "order": {
+    "n": 5,
+    "success": 0
+   }
+  },
+  "mean_steps": 7.433333333333334,
+  "seconds": 115.55046916007996
+ },
+ "episodes": [
+  {
+   "family": "price",
+   "seed": 0,
+   "goal": "What is the price of the Copper Watering Can? Reply with DONE and the price.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "product:Copper Watering Can",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Copper Watering Can",
+     "raw": "DONE(\"Price of Copper Watering Can is $28.50.\")",
+     "action": "DONE(\"Price of Copper Watering Can is $28.50.\")"
+    }
+   ],
+   "n_steps": 4,
+   "answer": "Price of Copper Watering Can is $28.50.",
+   "expected": "$28.50",
+   "oracle_len": 3
+  },
+  {
+   "family": "price",
+   "seed": 1,
+   "goal": "What is the price of the Walnut Desk Lamp? Reply with DONE and the price.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "product:Walnut Desk Lamp",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Walnut Desk Lamp",
+     "raw": "DONE(\"The price of the Walnut Desk Lamp is $108.50.\")",
+     "action": "DONE(\"The price of the Walnut Desk Lamp is $108.50.\")"
+    }
+   ],
+   "n_steps": 4,
+   "answer": "The price of the Walnut Desk Lamp is $108.50.",
+   "expected": "$108.50",
+   "oracle_len": 3
+  },
+  {
+   "family": "price",
+   "seed": 2,
+   "goal": "What is the price of the Canvas Tote Bag? Reply with DONE and the price.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "product:Canvas Tote Bag",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Canvas Tote Bag",
+     "raw": "DONE(\"Price of Canvas Tote Bag is $46.99.\")",
+     "action": "DONE(\"Price of Canvas Tote Bag is $46.99.\")"
+    }
+   ],
+   "n_steps": 4,
+   "answer": "Price of Canvas Tote Bag is $46.99.",
+   "expected": "$46.99",
+   "oracle_len": 3
+  },
+  {
+   "family": "price",
+   "seed": 3,
+   "goal": "What is the price of the Wool Hiking Socks? Reply with DONE and the price.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "product:Wool Hiking Socks",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Wool Hiking Socks",
+     "raw": "DONE(\"Price of Wool Hiking Socks is $105.50.\")",
+     "action": "DONE(\"Price of Wool Hiking Socks is $105.50.\")"
+    }
+   ],
+   "n_steps": 4,
+   "answer": "Price of Wool Hiking Socks is $105.50.",
+   "expected": "$105.50",
+   "oracle_len": 3
+  },
+  {
+   "family": "price",
+   "seed": 4,
+   "goal": "What is the price of the Bamboo Cutting Board? Reply with DONE and the price.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "product:Bamboo Cutting Board",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Bamboo Cutting Board",
+     "raw": "DONE(\"Price of Bamboo Cutting Board is $22.50.\")",
+     "action": "DONE(\"Price of Bamboo Cutting Board is $22.50.\")"
+    }
+   ],
+   "n_steps": 4,
+   "answer": "Price of Bamboo Cutting Board is $22.50.",
+   "expected": "$22.50",
+   "oracle_len": 3
+  },
+  {
+   "family": "contact",
+   "seed": 0,
+   "goal": "Find the shop's phone number on the Contact page. Reply with DONE and the number.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "contact",
+     "raw": "DONE(\"Phone: (835) 991-5792.\")",
+     "action": "DONE(\"Phone: (835) 991-5792.\")"
+    }
+   ],
+   "n_steps": 2,
+   "answer": "Phone: (835) 991-5792.",
+   "expected": "(835) 991-5792",
+   "oracle_len": 2
+  },
+  {
+   "family": "contact",
+   "seed": 1,
+   "goal": "Find the shop's phone number on the Contact page. Reply with DONE and the number.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "contact",
+     "raw": "DONE(\"Phone: (490) 734-7497.\")",
+     "action": "DONE(\"Phone: (490) 734-7497.\")"
+    }
+   ],
+   "n_steps": 2,
+   "answer": "Phone: (490) 734-7497.",
+   "expected": "(490) 734-7497",
+   "oracle_len": 2
+  },
+  {
+   "family": "contact",
+   "seed": 2,
+   "goal": "Find the shop's phone number on the Contact page. Reply with DONE and the number.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "contact",
+     "raw": "DONE(\"Phone: (722) 694-2302.\")",
+     "action": "DONE(\"Phone: (722) 694-2302.\")"
+    }
+   ],
+   "n_steps": 2,
+   "answer": "Phone: (722) 694-2302.",
+   "expected": "(722) 694-2302",
+   "oracle_len": 2
+  },
+  {
+   "family": "contact",
+   "seed": 3,
+   "goal": "Find the shop's phone number on the Contact page. Reply with DONE and the number.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "contact",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "home",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "contact",
+     "raw": "DONE(\"532-858-8137\")",
+     "action": "DONE(\"532-858-8137\")"
+    }
+   ],
+   "n_steps": 4,
+   "answer": "532-858-8137",
+   "expected": "(532) 858-8137",
+   "oracle_len": 2
+  },
+  {
+   "family": "contact",
+   "seed": 4,
+   "goal": "Find the shop's phone number on the Contact page. Reply with DONE and the number.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "contact",
+     "raw": "DONE(\"Phone: (313) 440-2239.\")",
+     "action": "DONE(\"Phone: (313) 440-2239.\")"
+    }
+   ],
+   "n_steps": 2,
+   "answer": "Phone: (313) 440-2239.",
+   "expected": "(313) 440-2239",
+   "oracle_len": 2
+  },
+  {
+   "family": "login",
+   "seed": 0,
+   "goal": "Log in with username \"erin\" and password \"moon96\", then reply DONE.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "login",
+     "raw": "TYPE(1, \"erin\")\nTYPE(2, \"moon96\")\nCLICK(3)",
+     "action": "TYPE(1, \"erin\")"
+    },
+    {
+     "page": "login",
+     "raw": "TYPE(2, \"moon96\")",
+     "action": "TYPE(2, \"moon96\")"
+    },
+    {
+     "page": "login",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "login_ok",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "home",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "login_ok",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "home",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "login_ok",
+     "raw": "DONE(\"Answer: Logged in successfully.\")",
+     "action": "DONE(\"Answer: Logged in successfully.\")"
+    }
+   ],
+   "n_steps": 10,
+   "answer": "Answer: Logged in successfully.",
+   "expected": null,
+   "oracle_len": 6
+  },
+  {
+   "family": "login",
+   "seed": 1,
+   "goal": "Log in with username \"erin\" and password \"rock67\", then reply DONE.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "login",
+     "raw": "TYPE(1, \"erin\")\nTYPE(2, \"rock67\")\nCLICK(3)",
+     "action": "TYPE(1, \"erin\")"
+    },
+    {
+     "page": "login",
+     "raw": "TYPE(2, \"rock67\")",
+     "action": "TYPE(2, \"rock67\")"
+    },
+    {
+     "page": "login",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "login_ok",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "home",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "login_ok",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "home",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "login_ok",
+     "raw": "DONE(\"Answer: Logged in successfully.\")",
+     "action": "DONE(\"Answer: Logged in successfully.\")"
+    }
+   ],
+   "n_steps": 10,
+   "answer": "Answer: Logged in successfully.",
+   "expected": null,
+   "oracle_len": 6
+  },
+  {
+   "family": "login",
+   "seed": 2,
+   "goal": "Log in with username \"heidi\" and password \"moon94\", then reply DONE.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "login",
+     "raw": "TYPE(1, \"heidi\")\nTYPE(2, \"moon94\")\nCLICK(3)",
+     "action": "TYPE(1, \"heidi\")"
+    },
+    {
+     "page": "login",
+     "raw": "TYPE(2, \"moon94\")",
+     "action": "TYPE(2, \"moon94\")"
+    },
+    {
+     "page": "login",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "login_ok",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "home",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "login_ok",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "home",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "login_ok",
+     "raw": "DONE(\"Logged in successfully.\")",
+     "action": "DONE(\"Logged in successfully.\")"
+    }
+   ],
+   "n_steps": 10,
+   "answer": "Logged in successfully.",
+   "expected": null,
+   "oracle_len": 6
+  },
+  {
+   "family": "login",
+   "seed": 3,
+   "goal": "Log in with username \"dave\" and password \"moon84\", then reply DONE.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "login",
+     "raw": "TYPE(1, \"dave\")\nTYPE(2, \"moon84\")\nCLICK(3)",
+     "action": "TYPE(1, \"dave\")"
+    },
+    {
+     "page": "login",
+     "raw": "TYPE(2, \"moon84\")",
+     "action": "TYPE(2, \"moon84\")"
+    },
+    {
+     "page": "login",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "login_ok",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "home",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "login_ok",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "home",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "login_ok",
+     "raw": "DONE(\"Logged in successfully.\")",
+     "action": "DONE(\"Logged in successfully.\")"
+    }
+   ],
+   "n_steps": 10,
+   "answer": "Logged in successfully.",
+   "expected": null,
+   "oracle_len": 6
+  },
+  {
+   "family": "login",
+   "seed": 4,
+   "goal": "Log in with username \"heidi\" and password \"sun21\", then reply DONE.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "login",
+     "raw": "TYPE(1, \"heidi\")\nTYPE(2, \"sun21\")\nCLICK(3)",
+     "action": "TYPE(1, \"heidi\")"
+    },
+    {
+     "page": "login",
+     "raw": "TYPE(2, \"sun21\")",
+     "action": "TYPE(2, \"sun21\")"
+    },
+    {
+     "page": "login",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "login_ok",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "home",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "login_ok",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "home",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "login_ok",
+     "raw": "DONE(\"Logged in successfully.\")",
+     "action": "DONE(\"Logged in successfully.\")"
+    }
+   ],
+   "n_steps": 10,
+   "answer": "Logged in successfully.",
+   "expected": null,
+   "oracle_len": 6
+  },
+  {
+   "family": "toggle",
+   "seed": 0,
+   "goal": "Turn off the \"Dark mode\" setting in Account > Settings, then reply DONE.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(6)",
+     "action": "CLICK(6)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(7)",
+     "action": "CLICK(7)"
+    },
+    {
+     "page": "home",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "settings",
+     "raw": "DONE(\"Dark mode turned off.\")",
+     "action": "DONE(\"Dark mode turned off.\")"
+    }
+   ],
+   "n_steps": 8,
+   "answer": "Dark mode turned off.",
+   "expected": null,
+   "oracle_len": 4
+  },
+  {
+   "family": "toggle",
+   "seed": 1,
+   "goal": "Turn off the \"Weekly newsletter\" setting in Account > Settings, then reply DONE.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(6)",
+     "action": "CLICK(6)"
+    },
+    {
+     "page": "account",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(5)",
+     "action": "CLICK(5)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(6)",
+     "action": "CLICK(6)"
+    },
+    {
+     "page": "account",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "settings",
+     "raw": "DONE(\"Settings turned off.\")",
+     "action": "DONE(\"Settings turned off.\")"
+    }
+   ],
+   "n_steps": 11,
+   "answer": "Settings turned off.",
+   "expected": null,
+   "oracle_len": 4
+  },
+  {
+   "family": "toggle",
+   "seed": 2,
+   "goal": "Turn off the \"Two-factor login\" setting in Account > Settings, then reply DONE.",
+   "label": "wander",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(5)",
+     "action": "CLICK(5)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(5)",
+     "action": "CLICK(5)"
+    },
+    {
+     "page": "settings",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "settings",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "login",
+     "raw": "TYPE(1, \"testuser\")\nTYPE(2, \"testpassword\")\nCLICK(3)",
+     "action": "TYPE(1, \"testuser\")"
+    },
+    {
+     "page": "login",
+     "raw": "TYPE(2, \"\")",
+     "action": "TYPE(2, \"\")"
+    },
+    {
+     "page": "login",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "login_fail",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    }
+   ],
+   "n_steps": 12,
+   "answer": null,
+   "expected": null,
+   "oracle_len": 4
+  },
+  {
+   "family": "toggle",
+   "seed": 3,
+   "goal": "Turn off the \"Dark mode\" setting in Account > Settings, then reply DONE.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(6)",
+     "action": "CLICK(6)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(7)",
+     "action": "CLICK(7)"
+    },
+    {
+     "page": "home",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "settings",
+     "raw": "DONE(\"Dark mode turned off.\")",
+     "action": "DONE(\"Dark mode turned off.\")"
+    }
+   ],
+   "n_steps": 8,
+   "answer": "Dark mode turned off.",
+   "expected": null,
+   "oracle_len": 4
+  },
+  {
+   "family": "toggle",
+   "seed": 4,
+   "goal": "Turn off the \"Two-factor login\" setting in Account > Settings, then reply DONE.",
+   "label": "wander",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(5)",
+     "action": "CLICK(5)"
+    },
+    {
+     "page": "settings",
+     "raw": "CLICK(5)",
+     "action": "CLICK(5)"
+    },
+    {
+     "page": "settings",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "settings",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "account",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "login",
+     "raw": "TYPE(1, \"testuser\")\nTYPE(2, \"testpassword\")\nCLICK(3)",
+     "action": "TYPE(1, \"testuser\")"
+    },
+    {
+     "page": "login",
+     "raw": "TYPE(2, \"\")",
+     "action": "TYPE(2, \"\")"
+    },
+    {
+     "page": "login",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "login_fail",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    }
+   ],
+   "n_steps": 12,
+   "answer": null,
+   "expected": null,
+   "oracle_len": 4
+  },
+  {
+   "family": "search",
+   "seed": 0,
+   "goal": "Use the Search page to search for \"mug\". Reply with DONE and the title of the first result.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "search",
+     "raw": "TYPE(1, \"mug\")",
+     "action": "TYPE(1, \"mug\")"
+    },
+    {
+     "page": "search",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "search_results",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Ceramic Coffee Mug",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Ceramic Coffee Mug",
+     "raw": "DONE(\"Added Ceramic Coffee Mug to cart.\")",
+     "action": "DONE(\"Added Ceramic Coffee Mug to cart.\")"
+    }
+   ],
+   "n_steps": 6,
+   "answer": "Added Ceramic Coffee Mug to cart.",
+   "expected": "Ceramic Coffee Mug",
+   "oracle_len": 4
+  },
+  {
+   "family": "search",
+   "seed": 1,
+   "goal": "Use the Search page to search for \"pillow\". Reply with DONE and the title of the first result.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "search",
+     "raw": "TYPE(1, \"pillow\")",
+     "action": "TYPE(1, \"pillow\")"
+    },
+    {
+     "page": "search",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "search_results",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Linen Throw Pillow",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Linen Throw Pillow",
+     "raw": "DONE(\"Added Linen Throw Pillow to cart.\")",
+     "action": "DONE(\"Added Linen Throw Pillow to cart.\")"
+    }
+   ],
+   "n_steps": 6,
+   "answer": "Added Linen Throw Pillow to cart.",
+   "expected": "Linen Throw Pillow",
+   "oracle_len": 4
+  },
+  {
+   "family": "search",
+   "seed": 2,
+   "goal": "Use the Search page to search for \"lamp\". Reply with DONE and the title of the first result.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "search",
+     "raw": "TYPE(1, \"lamp\")",
+     "action": "TYPE(1, \"lamp\")"
+    },
+    {
+     "page": "search",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "search_results",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Walnut Desk Lamp",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Walnut Desk Lamp",
+     "raw": "DONE(\"Added Walnut Desk Lamp to cart.\")",
+     "action": "DONE(\"Added Walnut Desk Lamp to cart.\")"
+    }
+   ],
+   "n_steps": 6,
+   "answer": "Added Walnut Desk Lamp to cart.",
+   "expected": "Walnut Desk Lamp",
+   "oracle_len": 4
+  },
+  {
+   "family": "search",
+   "seed": 3,
+   "goal": "Use the Search page to search for \"frame\". Reply with DONE and the title of the first result.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "search",
+     "raw": "TYPE(1, \"frame\")",
+     "action": "TYPE(1, \"frame\")"
+    },
+    {
+     "page": "search",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "search_results",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Cedar Picture Frame",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Cedar Picture Frame",
+     "raw": "DONE(\"Added Cedar Picture Frame to cart.\")",
+     "action": "DONE(\"Added Cedar Picture Frame to cart.\")"
+    }
+   ],
+   "n_steps": 6,
+   "answer": "Added Cedar Picture Frame to cart.",
+   "expected": "Cedar Picture Frame",
+   "oracle_len": 4
+  },
+  {
+   "family": "search",
+   "seed": 4,
+   "goal": "Use the Search page to search for \"bag\". Reply with DONE and the title of the first result.",
+   "label": "success",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "search",
+     "raw": "TYPE(1, \"bag\")",
+     "action": "TYPE(1, \"bag\")"
+    },
+    {
+     "page": "search",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "search_results",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Canvas Tote Bag",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Canvas Tote Bag",
+     "raw": "DONE(\"Canvas Tote Bag was added to cart.\")",
+     "action": "DONE(\"Canvas Tote Bag was added to cart.\")"
+    }
+   ],
+   "n_steps": 6,
+   "answer": "Canvas Tote Bag was added to cart.",
+   "expected": "Canvas Tote Bag",
+   "oracle_len": 4
+  },
+  {
+   "family": "order",
+   "seed": 0,
+   "goal": "Add the Walnut Desk Lamp to the cart and place the order, then reply DONE.",
+   "label": "wander",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(5)",
+     "action": "CLICK(5)"
+    },
+    {
+     "page": "cart",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "cart",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "home",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "product:Walnut Desk Lamp",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Walnut Desk Lamp",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "product:Walnut Desk Lamp",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Walnut Desk Lamp",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(3)",
+     "action": "CLICK(3)"
+    },
+    {
+     "page": "product:Oak Bookshelf",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    }
+   ],
+   "n_steps": 12,
+   "answer": null,
+   "expected": null,
+   "oracle_len": 9
+  },
+  {
+   "family": "order",
+   "seed": 1,
+   "goal": "Add the Canvas Tote Bag to the cart and place the order, then reply DONE.",
+   "label": "wander",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(5)",
+     "action": "CLICK(5)"
+    },
+    {
+     "page": "cart",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "cart",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "home",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "product:Canvas Tote Bag",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Canvas Tote Bag",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "product:Canvas Tote Bag",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Canvas Tote Bag",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(4)",
+     "action": "CLICK(4)"
+    },
+    {
+     "page": "product:Canvas Tote Bag",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    }
+   ],
+   "n_steps": 12,
+   "answer": null,
+   "expected": null,
+   "oracle_len": 9
+  },
+  {
+   "family": "order",
+   "seed": 2,
+   "goal": "Add the Canvas Tote Bag to the cart and place the order, then reply DONE.",
+   "label": "wander",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(5)",
+     "action": "CLICK(5)"
+    },
+    {
+     "page": "cart",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "cart",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "home",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "product:Canvas Tote Bag",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Canvas Tote Bag",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "product:Canvas Tote Bag",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Canvas Tote Bag",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "product:Canvas Tote Bag",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    }
+   ],
+   "n_steps": 12,
+   "answer": null,
+   "expected": null,
+   "oracle_len": 9
+  },
+  {
+   "family": "order",
+   "seed": 3,
+   "goal": "Add the Linen Throw Pillow to the cart and place the order, then reply DONE.",
+   "label": "loop",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(5)",
+     "action": "CLICK(5)"
+    },
+    {
+     "page": "cart",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "cart",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "home",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "product:Linen Throw Pillow",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Linen Throw Pillow",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Linen Throw Pillow",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Linen Throw Pillow",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Linen Throw Pillow",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Linen Throw Pillow",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Linen Throw Pillow",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    }
+   ],
+   "n_steps": 12,
+   "answer": null,
+   "expected": null,
+   "oracle_len": 9
+  },
+  {
+   "family": "order",
+   "seed": 4,
+   "goal": "Add the Cedar Picture Frame to the cart and place the order, then reply DONE.",
+   "label": "wander",
+   "steps": [
+    {
+     "page": "home",
+     "raw": "CLICK(5)",
+     "action": "CLICK(5)"
+    },
+    {
+     "page": "cart",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "cart",
+     "raw": "BACK",
+     "action": "BACK"
+    },
+    {
+     "page": "home",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Cedar Picture Frame",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Cedar Picture Frame",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Cedar Picture Frame",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Cedar Picture Frame",
+     "raw": "CLICK(2)",
+     "action": "CLICK(2)"
+    },
+    {
+     "page": "products",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    },
+    {
+     "page": "product:Cedar Picture Frame",
+     "raw": "CLICK(1)",
+     "action": "CLICK(1)"
+    }
+   ],
+   "n_steps": 12,
+   "answer": null,
+   "expected": null,
+   "oracle_len": 9
+  }
+ ]
+}

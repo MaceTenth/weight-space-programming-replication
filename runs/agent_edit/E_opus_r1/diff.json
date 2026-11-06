@@ -1,0 +1,18 @@
+{
+ "changed": {
+  "model.layers.27.mlp.down_proj.weight": {
+   "values": 572941,
+   "rows": 64,
+   "shape": [
+    1536,
+    8960
+   ],
+   "max_abs": 1.075927734375,
+   "rel_fro": 0.5700476169586182,
+   "dtype_base": "torch.bfloat16",
+   "dtype_edit": "torch.bfloat16"
+  }
+ },
+ "total_params": 1543714304,
+ "total_changed": 572941
+}
